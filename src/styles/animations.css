@@ -1,0 +1,82 @@
+/* ZIPLINE ASIA – Natural Subtle Animation & Hover Interactions */
+
+@keyframes subtleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: subtleFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Organic Pulse Glow */
+@keyframes terracottaPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(224, 109, 34, 0.4);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 20px rgba(224, 109, 34, 0.7);
+  }
+}
+
+.animate-terracotta-pulse {
+  animation: terracottaPulse 3s ease-in-out infinite;
+}
+
+/* Smooth Image Scale on Card Hover */
+.image-zoom-hover {
+  overflow: hidden;
+}
+.image-zoom-hover img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.image-zoom-hover:hover img {
+  transform: scale(1.05);
+}
+
+/* Soft Product Selection Transition */
+@keyframes productSwapFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-product-swap {
+  animation: productSwapFade 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Elegant Minimal Signature Reveal */
+@keyframes signatureDraw {
+  from {
+    opacity: 0.15;
+    stroke-dashoffset: 260;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-signature path {
+  stroke-dasharray: 260;
+  animation: signatureDraw 1.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Touch feedback for mobile interactive controls */
+.touch-card:active {
+  transform: scale(0.985);
+  transition: transform 0.15s ease-out;
+}
