@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: adventure-park-solutions
+    name: zipline-asia
     runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist

@@ -1,66 +1,52 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import SmoothScroll from './components/SmoothScroll';
+import ScrollToTop from './components/common/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Solutions from './components/Solutions/Solutions';
-import Products from './components/Products/Products';
-import Industries from './components/Industries/Industries';
-import Process from './components/Process/Process';
-import Founder from './components/Founder/Founder';
-import Projects from './components/Projects/Projects';
-import Certifications from './components/Certifications/Certifications';
-import WhyChoose from './components/WhyChoose/WhyChoose';
-import KnowledgeHub from './components/Knowledge/KnowledgeHub';
-import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+
+// Pages
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import SolutionsPage from './pages/SolutionsPage';
+import AttractionsPage from './pages/AttractionsPage';
+import IndustriesPage from './pages/IndustriesPage';
+import ProjectsPage from './pages/ProjectsPage';
+import SafetyPage from './pages/SafetyPage';
+import KnowledgePage from './pages/KnowledgePage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
-    <SmoothScroll>
-      <div className="relative min-h-screen bg-[#14281D] text-white font-sans selection:bg-[#E06D22] selection:text-white">
-        {/* Navigation with Transparent to Solid Scroll Transition */}
-        <Navbar />
+    <Router>
+      <SmoothScroll>
+        <ScrollToTop />
+        <div className="relative min-h-screen bg-[#14281D] text-white font-sans selection:bg-[#E06D22] selection:text-white flex flex-col justify-between">
+          {/* Universal Sticky Navigation */}
+          <Navbar />
 
-        {/* 01 — Fullscreen Cinematic Hero Section (Deep Pine Green) */}
-        <Hero />
+          {/* Dynamic Page Routing */}
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/solutions" element={<SolutionsPage />} />
+              <Route path="/attractions" element={<AttractionsPage />} />
+              <Route path="/industries" element={<IndustriesPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/safety" element={<SafetyPage />} />
+              <Route path="/knowledge-hub" element={<KnowledgePage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              
+              {/* Fallback to Home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
 
-        {/* 02 — About Us: Adventure Park Solutions (Warm Sand Surface) */}
-        <About />
-
-        {/* 03 — Our Solutions: 11 Turnkey Services (Warm Sand Surface with Sand Cards) */}
-        <Solutions />
-
-        {/* 04 — Adventure Attractions: 5 Categories Showcase (Deep Pine Green Surface) */}
-        <Products />
-
-        {/* 05 — Industries We Serve (Warm Sand Surface) */}
-        <Industries />
-
-        {/* 06 — Our Approach / Engineering Methodology (Warm Sand Surface) */}
-        <Process />
-
-        {/* 07 — Founder Section: Leadership & Engineering Philosophy (Warm Sand Surface) */}
-        <Founder />
-
-        {/* 08 — Projects & Portfolio Carousel (Deep Pine Green Surface) */}
-        <Projects />
-
-        {/* 09 — Safety, Engineering & Quality Protocols (Warm Sand Surface) */}
-        <Certifications />
-
-        {/* 10 — Why Choose APS (Warm Sand Surface) */}
-        <WhyChoose />
-
-        {/* 11 — Knowledge Hub: Planning & Investment Guides (Deep Pine Green Surface) */}
-        <KnowledgeHub />
-
-        {/* 12 — Contact & Project Proposal Section (Deep Pine Green with Video Background) */}
-        <Contact />
-
-        {/* 13 — Footer (Deep Pine Green) */}
-        <Footer />
-      </div>
-    </SmoothScroll>
+          {/* Universal Footer */}
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </Router>
   );
 }

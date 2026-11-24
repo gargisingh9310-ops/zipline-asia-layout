@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import ScrollReveal from '../reactbits/ScrollReveal';
 import { brandData, footerData } from '../../data/websiteData';
@@ -9,18 +10,6 @@ export default function Footer() {
       window.lenis.scrollTo(0);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleLinkClick = (e, href) => {
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      if (window.lenis) {
-        window.lenis.scrollTo(target);
-      } else {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
     }
   };
 
@@ -51,7 +40,7 @@ export default function Footer() {
 
             <div className="pt-2 space-y-1">
               <span className="text-xs font-mono text-[#F7F5F0]/90 uppercase tracking-wider font-semibold block">
-                {footerData.positioning || "Complete Adventure Infrastructure Solutions Company"}
+                {footerData.positioning}
               </span>
               <p className="text-[11px] font-mono text-[#E06D22] tracking-wide">
                 {footerData.closingMessage}
@@ -67,13 +56,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerData.navLinks.map((item, idx) => (
                 <li key={idx}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleLinkClick(e, item.href)}
-                    className="text-xs sm:text-sm text-[#F7F5F0]/80 hover:text-white transition-colors font-medium"
+                  <Link
+                    to={item.href}
+                    className="text-xs sm:text-sm text-[#F7F5F0]/80 hover:text-white transition-colors font-medium hover:translate-x-0.5 inline-block"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,14 +75,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerData.solutionsLinks.map((item, idx) => (
                 <li key={idx}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleLinkClick(e, item.href)}
+                  <Link
+                    to={item.href}
                     className="text-xs sm:text-sm text-[#F7F5F0]/80 hover:text-[#E06D22] transition-colors flex items-center gap-1 group font-medium"
                   >
                     <span>{item.label}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#E06D22]" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,16 +97,15 @@ export default function Footer() {
                 B2B Developer Inquiries
               </span>
               <p className="text-xs text-[#F7F5F0]/80 leading-relaxed font-normal">
-                Direct turnkey coordination for hotel management groups, luxury resorts, and adventure park operators.
+                Direct turnkey coordination for hotel management groups, luxury resorts, theme parks, and commercial operators.
               </p>
-              <a
-                href="#contact"
-                onClick={(e) => handleLinkClick(e, '#contact')}
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#E06D22] hover:text-white transition-colors pt-1 cursor-pointer"
               >
-                <span>INITIATE INQUIRY</span>
+                <span>INITIATE PROPOSAL</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#E06D22]" />
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
 
