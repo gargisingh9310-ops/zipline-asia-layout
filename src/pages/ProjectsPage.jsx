@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/common/PageHeader';
+import { ArrowUpRight, Eye, X, CheckCircle2 } from 'lucide-react';
+import PageHero from '../components/common/PageHero';
 import ScrollReveal from '../components/reactbits/ScrollReveal';
 import { projectsData } from '../data/websiteData';
 
@@ -13,200 +14,268 @@ export default function ProjectsPage() {
     : projectsData.projects.filter(p => p.category === activeCategory);
 
   const projectMetrics = [
-    { label: "Engineering Scope", value: "Turnkey" },
-    { label: "Operational Safety", value: "100%" },
-    { label: "Project Types", value: "6 Categories" },
-    { label: "Technical Heritage", value: "Est. 1995" }
+    { label: "Engineering Scope", value: "Turnkey 100%" },
+    { label: "Operational Safety", value: "100% Verified" },
+    { label: "Technical Heritage", value: "30 Yrs (Est. 1995)" }
   ];
 
   const getStatusBadgeStyle = (status) => {
     switch (status) {
       case "Completed":
-        return "bg-emerald-950/80 border-emerald-500/50 text-emerald-400";
+        return "bg-emerald-50 border-emerald-500/40 text-emerald-800";
       case "Under Execution":
-        return "bg-amber-950/80 border-amber-500/50 text-amber-400";
+        return "bg-amber-50 border-amber-500/40 text-amber-800";
       case "Conceptual Design":
-        return "bg-sky-950/80 border-sky-500/50 text-sky-400";
+        return "bg-sky-50 border-sky-500/40 text-sky-800";
       case "Custom Fabrication":
-        return "bg-purple-950/80 border-purple-500/50 text-purple-400";
+        return "bg-purple-50 border-purple-500/40 text-purple-800";
       default:
-        return "bg-[#E06D22]/20 border-[#E06D22]/50 text-[#E06D22]";
+        return "bg-[#E06D22]/10 border-[#E06D22]/30 text-[#E06D22]";
     }
   };
 
   return (
-    <div className="bg-[#14281D] text-[#F7F5F0] min-h-screen pt-20">
-      {/* Page Header */}
-      <PageHeader
-        breadcrumbs={[{ label: "Projects & Portfolio" }]}
+    <div className="w-full bg-[#F7F5F0] text-[#1C2420]">
+      {/* 01 — Full-Screen Page Hero (100svh, Dark & Cinematic) */}
+      <PageHero
         eyebrow="COMMERCIAL PORTFOLIO & CASE STUDIES"
         title="PROJECTS & PORTFOLIO."
-        subtitle="ENGINEERED ADVENTURE INFRASTRUCTURE FOR REMARKABLE COMMERCIAL DESTINATIONS."
-        description="Explore our portfolio of completed adventure installations, active developments under execution, and conceptual 3D engineering renders for resorts, tourism boards, and amusement complexes."
+        highlightText="ENGINEERED ADVENTURE."
+        subtitle="Explore our portfolio of completed adventure installations, active developments under execution, and conceptual 3D engineering renders for resorts, tourism boards, and amusement complexes."
+        bgImage="/images/glass-bridge.jpg"
+        breadcrumbs={[{ label: "Projects & Portfolio" }]}
+        primaryCTA={{ label: "DISCUSS YOUR PROJECT", href: "/contact" }}
+        secondaryCTA={{ label: "SAFETY & QUALITY STANDARDS", href: "/safety" }}
         metrics={projectMetrics}
-        ctaLabel="DISCUSS YOUR PROJECT"
-        ctaHref="/contact"
+        scrollTargetId="projects-content"
       />
 
-      {/* Professional Disclosure / Integrity Banner */}
-      <section className="bg-[#0E1C14] border-b border-[#3E6B48]/30 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#F7F5F0]/70">
+      {/* 02 — Portfolio Integrity Banner & Category Filter Tabs (LIGHT Surface) */}
+      <div id="projects-content" className="bg-[#FAF9F5] border-b border-[#3E6B48]/20 py-4 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#525E57]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-white font-semibold">PORTFOLIO CLARITY & ENGINEERING INTEGRITY:</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="text-[#14281D] font-bold">PORTFOLIO CLARITY:</span>
             <span>All projects clearly indicate execution status (Completed, Under Execution, or Conceptual 3D Renders).</span>
           </div>
           <div className="text-[#E06D22] font-semibold">
             SINGLE-SOURCE TURNKEY ACCOUNTABILITY
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Filter Tabs Section */}
-      <section className="sticky top-20 z-30 bg-[#14281D]/95 backdrop-blur-md border-b border-[#3E6B48]/30 py-4 shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-[#3E6B48] scrollbar-track-transparent">
-            {projectsData.categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase whitespace-nowrap transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-[#E06D22] text-white shadow-md shadow-[#E06D22]/20"
-                    : "bg-[#1C2420] text-[#F7F5F0]/70 border border-[#3E6B48]/40 hover:text-white hover:border-[#E06D22]/50"
-                }`}
-              >
-                {cat}
-              </button>
+      {/* Sticky Filter Tabs */}
+      <div className="sticky top-[56px] sm:top-[68px] z-30 w-full bg-[#F7F5F0]/95 backdrop-blur-md border-b border-[#3E6B48]/20 py-3.5 px-4 sm:px-8 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto scrollbar-none">
+          {projectsData.categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                activeCategory === cat
+                  ? "bg-[#E06D22] text-white shadow-glow-terracotta"
+                  : "bg-white text-[#1C2420] border border-[#3E6B48]/20 hover:text-[#E06D22] hover:border-[#E06D22] shadow-xs"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* 03 — Projects Grid (LIGHT: Crisp White Surface) */}
+      <section className="py-16 sm:py-24 bg-white text-[#1C2420] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#1C2420]/10">
+            <p className="text-xs font-mono text-[#525E57] uppercase tracking-widest">
+              SHOWING <span className="text-[#E06D22] font-bold">{filteredProjects.length}</span> PROJECTS IN "{activeCategory.toUpperCase()}"
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((proj, idx) => (
+              <ScrollReveal key={proj.id} delay={idx * 0.05}>
+                <div className="group rounded-2xl overflow-hidden bg-[#F7F5F0] border border-[#3E6B48]/15 hover:border-[#E06D22] hover:bg-white hover:shadow-card-sand transition-all duration-300 flex flex-col h-full shadow-sm">
+                  {/* Project Image */}
+                  <div className="relative h-60 w-full overflow-hidden bg-[#14281D]">
+                    <img
+                      src={proj.image}
+                      alt={proj.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#14281D]/80 via-transparent to-transparent" />
+
+                    {/* Status Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className={`px-2.5 py-1 rounded text-[11px] font-mono font-bold uppercase tracking-wider border backdrop-blur-md shadow-xs ${getStatusBadgeStyle(proj.status)}`}>
+                        {proj.badge || proj.status}
+                      </span>
+                    </div>
+
+                    {/* Typology */}
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <span className="text-xs font-mono text-white/90 drop-shadow-md uppercase tracking-wider font-semibold">
+                        {proj.typology}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-display font-bold uppercase text-[#14281D] mb-3 group-hover:text-[#E06D22] transition-colors leading-snug">
+                        {proj.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#525E57] font-normal leading-relaxed mb-6">
+                        {proj.description}
+                      </p>
+
+                      {/* Technical Parameters Box */}
+                      <div className="space-y-2 mb-6 p-3.5 rounded-xl bg-white border border-[#3E6B48]/15 text-xs font-mono shadow-2xs">
+                        <div className="flex justify-between items-center text-[#525E57]">
+                          <span>SCOPE:</span>
+                          <span className="text-[#14281D] font-bold text-right truncate max-w-[65%]">{proj.scope}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-[#525E57]">
+                          <span>ATTRACTIONS:</span>
+                          <span className="text-[#E06D22] font-semibold text-right truncate max-w-[65%]">{proj.attractions}</span>
+                        </div>
+                        {proj.specs && (
+                          <div className="flex justify-between items-center text-[#525E57]">
+                            <span>SPECS:</span>
+                            <span className="text-[#14281D] font-normal text-right">{proj.specs}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Action Links */}
+                    <div className="pt-4 border-t border-[#1C2420]/10 flex items-center justify-between gap-3">
+                      <button
+                        onClick={() => setSelectedProject(proj)}
+                        className="text-xs font-mono font-bold uppercase tracking-wider text-[#14281D] hover:text-[#E06D22] transition-colors flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#E06D22]" />
+                        <span>View Dossier</span>
+                      </button>
+
+                      <Link
+                        to={`/contact?project=${encodeURIComponent(proj.title)}`}
+                        className="px-3.5 py-1.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#C85B17] transition-colors flex items-center gap-1 shadow-xs"
+                      >
+                        <span>Inquire</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <p className="text-xs font-mono text-[#F7F5F0]/60 uppercase tracking-widest">
-            SHOWING <span className="text-[#E06D22] font-bold">{filteredProjects.length}</span> PROJECTS IN "{activeCategory.toUpperCase()}"
-          </p>
+      {/* 04 — Technical Milestones (DARK High-Impact Accent #14281D) */}
+      <section className="py-16 sm:py-24 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-y border-[#3E6B48]/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="max-w-3xl mb-12 space-y-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+              ENGINEERING BENCHMARKS
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-tight">
+              Signature Rigging & Structural Feats
+            </h2>
+            <p className="text-sm sm:text-base text-[#F7F5F0]/80 font-light leading-relaxed">
+              Our engineering portfolio is defined by solving complex terrain challenges through rigorous wire rope catenary calculations, cantilever steel structures, and tuned harmonic damping.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-2xl font-mono font-bold text-[#E06D22] block">Mega-Span</span>
+              <h3 className="text-lg font-display font-bold uppercase text-white">Valley Zipline Corridors</h3>
+              <p className="text-xs text-[#F7F5F0]/70 leading-relaxed font-light">
+                High-tension wire rope catenary curves spanning mountainous ravines with passive magnetic terminal deceleration.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-2xl font-mono font-bold text-[#3E6B48] block">Cantilever</span>
+              <h3 className="text-lg font-display font-bold uppercase text-white">Steel Bungee Platforms</h3>
+              <p className="text-xs text-[#F7F5F0]/70 leading-relaxed font-light">
+                Structural truss platforms anchored to sheer rock faces with certified 12:1 load safety factor anchorages.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-2xl font-mono font-bold text-[#E06D22] block">Continuous</span>
+              <h3 className="text-lg font-display font-bold uppercase text-white">Belay Aerial Circuits</h3>
+              <p className="text-xs text-[#F7F5F0]/70 leading-relaxed font-light">
+                Uninterrupted continuous track aerial obstacle circuits ensuring zero unclipped participant transitions.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((proj, idx) => (
-            <ScrollReveal key={proj.id} delay={idx * 0.05}>
-              <div className="group rounded-xl overflow-hidden bg-[#1C2420] border border-[#3E6B48]/30 hover:border-[#E06D22]/50 transition-all duration-300 flex flex-col h-full shadow-lg">
-                {/* Project Image */}
-                <div className="relative h-60 w-full overflow-hidden bg-black/40">
-                  <img
-                    src={proj.image}
-                    alt={proj.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C2420] via-transparent to-black/30" />
-
-                  {/* Status Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-2.5 py-1 rounded text-[11px] font-mono font-bold uppercase tracking-wider border backdrop-blur-md ${getStatusBadgeStyle(proj.status)}`}>
-                      {proj.badge || proj.status}
-                    </span>
-                  </div>
-
-                  {/* Typology */}
-                  <div className="absolute bottom-3 left-4 right-4">
-                    <span className="text-xs font-mono text-[#E06D22] uppercase tracking-wider font-semibold">
-                      {proj.typology}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#F7F5F0] mb-3 group-hover:text-[#E06D22] transition-colors leading-snug">
-                      {proj.title}
-                    </h3>
-                    <p className="text-sm text-[#F7F5F0]/70 font-light leading-relaxed mb-6">
-                      {proj.description}
-                    </p>
-
-                    {/* Technical Parameters */}
-                    <div className="space-y-2 mb-6 p-3.5 rounded bg-[#14281D]/80 border border-[#3E6B48]/20 text-xs font-mono">
-                      <div className="flex justify-between items-center text-[#F7F5F0]/60">
-                        <span>SCOPE:</span>
-                        <span className="text-[#F7F5F0] font-medium text-right truncate max-w-[65%]">{proj.scope}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-[#F7F5F0]/60">
-                        <span>ATALYSIS:</span>
-                        <span className="text-[#E06D22] font-semibold text-right truncate max-w-[65%]">{proj.attractions}</span>
-                      </div>
-                      {proj.specs && (
-                        <div className="flex justify-between items-center text-[#F7F5F0]/60">
-                          <span>SPECS:</span>
-                          <span className="text-[#F7F5F0] font-light text-right">{proj.specs}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="pt-4 border-t border-[#3E6B48]/20 flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => setSelectedProject(proj)}
-                      className="text-xs font-mono font-bold uppercase tracking-wider text-[#F7F5F0]/70 hover:text-[#E06D22] transition-colors flex items-center gap-1.5"
-                    >
-                      <span>View Dossier</span>
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    </button>
-
-                    <Link
-                      to={`/contact?project=${encodeURIComponent(proj.title)}`}
-                      className="px-3.5 py-1.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#c85b18] transition-colors flex items-center gap-1"
-                    >
-                      <span>Inquire</span>
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+      {/* 05 — Bottom CTA (LIGHT Surface: Warm Sand) */}
+      <section className="py-16 sm:py-20 bg-[#F7F5F0] text-[#1C2420] overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center space-y-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22]">
+            TURNKEY ENGINEERING RIGOR
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-[#14281D] tracking-tight">
+            Ready to Develop a Landmark Adventure Destination?
+          </h2>
+          <p className="text-sm sm:text-base text-[#525E57] max-w-2xl mx-auto font-normal leading-relaxed">
+            Whether developing a multi-acre outdoor park or integrating a scenic long-span zipline into a resort, our engineering team manages every phase from feasibility to commissioning.
+          </p>
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="px-8 py-4 rounded-md bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#C85B17] transition-all shadow-md"
+            >
+              REQUEST A PROJECT PROPOSAL
+            </Link>
+            <Link
+              to="/safety"
+              className="px-8 py-4 rounded-md bg-white border border-[#3E6B48]/30 text-[#14281D] text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#FAF9F5] transition-all"
+            >
+              REVIEW SAFETY & QUALITY STANDARDS
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Project Details Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-          <div className="relative w-full max-w-3xl bg-[#1C2420] border border-[#3E6B48] rounded-xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+          <div className="relative w-full max-w-3xl bg-white border border-[#3E6B48]/20 rounded-2xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-[#F7F5F0]/60 hover:text-[#E06D22] p-2 transition-colors"
+              className="absolute top-4 right-4 text-[#525E57] hover:text-[#14281D] p-2 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3 mb-2">
               <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border ${getStatusBadgeStyle(selectedProject.status)}`}>
                 {selectedProject.badge || selectedProject.status}
               </span>
-              <span className="text-xs font-mono text-[#E06D22] uppercase tracking-wider">
+              <span className="text-xs font-mono text-[#E06D22] uppercase tracking-wider font-bold">
                 {selectedProject.category}
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#F7F5F0] mb-4 leading-tight">
+            <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-[#14281D] mb-4 leading-tight">
               {selectedProject.title}
             </h3>
 
-            <div className="relative h-64 sm:h-80 w-full rounded-lg overflow-hidden mb-6 border border-[#3E6B48]/30">
+            <div className="relative h-64 sm:h-80 w-full rounded-xl overflow-hidden mb-6 border border-[#3E6B48]/20 bg-[#14281D]">
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
@@ -215,21 +284,21 @@ export default function ProjectsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="p-3.5 rounded bg-[#14281D] border border-[#3E6B48]/30">
-                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1">PROJECT SCOPE</div>
-                <div className="text-sm font-medium text-[#F7F5F0]">{selectedProject.scope}</div>
+              <div className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
+                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1 font-bold">PROJECT SCOPE</div>
+                <div className="text-sm font-semibold text-[#14281D]">{selectedProject.scope}</div>
               </div>
-              <div className="p-3.5 rounded bg-[#14281D] border border-[#3E6B48]/30">
-                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1">INSTALLED ATTRACTIONS</div>
-                <div className="text-sm font-medium text-[#F7F5F0]">{selectedProject.attractions}</div>
+              <div className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
+                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1 font-bold">INSTALLED ATTRACTIONS</div>
+                <div className="text-sm font-semibold text-[#14281D]">{selectedProject.attractions}</div>
               </div>
-              <div className="p-3.5 rounded bg-[#14281D] border border-[#3E6B48]/30">
-                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1">ENGINEERING TYPOLOGY</div>
-                <div className="text-sm font-medium text-[#F7F5F0]">{selectedProject.typology}</div>
+              <div className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
+                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1 font-bold">ENGINEERING TYPOLOGY</div>
+                <div className="text-sm font-semibold text-[#14281D]">{selectedProject.typology}</div>
               </div>
-              <div className="p-3.5 rounded bg-[#14281D] border border-[#3E6B48]/30">
-                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1">SPECIFICATIONS</div>
-                <div className="text-sm font-medium text-[#F7F5F0]">{selectedProject.specs || "Commercial Standard"}</div>
+              <div className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
+                <div className="text-[10px] font-mono text-[#E06D22] uppercase tracking-wider mb-1 font-bold">SPECIFICATIONS</div>
+                <div className="text-sm font-semibold text-[#14281D]">{selectedProject.specs || "Commercial Standard"}</div>
               </div>
             </div>
 
@@ -237,22 +306,22 @@ export default function ProjectsPage() {
               <h4 className="text-xs font-mono font-bold text-[#E06D22] tracking-wider uppercase mb-2">
                 PROJECT OVERVIEW & ENGINEERING EXECUTION:
               </h4>
-              <p className="text-sm text-[#F7F5F0]/80 leading-relaxed font-light">
+              <p className="text-sm text-[#525E57] leading-relaxed font-normal">
                 {selectedProject.description}
               </p>
             </div>
 
-            <div className="flex items-center justify-end gap-4 pt-4 border-t border-[#3E6B48]/30">
+            <div className="flex items-center justify-end gap-4 pt-4 border-t border-[#1C2420]/10">
               <button
                 onClick={() => setSelectedProject(null)}
-                className="px-4 py-2 text-xs font-mono text-[#F7F5F0]/70 hover:text-white transition-colors uppercase tracking-wider"
+                className="px-4 py-2 text-xs font-mono text-[#525E57] hover:text-[#14281D] transition-colors uppercase tracking-wider cursor-pointer"
               >
                 Close
               </button>
               <Link
                 to={`/contact?project=${encodeURIComponent(selectedProject.title)}`}
                 onClick={() => setSelectedProject(null)}
-                className="px-5 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#c85b18] transition-colors"
+                className="px-5 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#C85B17] transition-colors"
               >
                 Inquire Similar Project
               </Link>
@@ -260,35 +329,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       )}
-
-      {/* Turnkey Assurance Banner */}
-      <section className="py-20 border-t border-[#3E6B48]/30 bg-gradient-to-b from-[#14281D] to-[#0A160F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E06D22]/10 border border-[#E06D22]/30 text-[#E06D22] text-xs font-mono tracking-widest uppercase mb-4">
-            TURNKEY ENGINEERING RIGOR
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F7F5F0] tracking-tight mb-4">
-            READY TO DEVELOP A LANDMARK ADVENTURE DESTINATION?
-          </h2>
-          <p className="text-base text-[#F7F5F0]/70 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-            Whether developing a multi-acre outdoor park or integrating a scenic long-span zipline into a resort, our engineering team manages every phase from feasibility to commissioning.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto px-8 py-4 rounded bg-[#E06D22] text-white text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#c85b18] transition-all duration-300 shadow-lg shadow-[#E06D22]/20"
-            >
-              REQUEST A PROJECT PROPOSAL
-            </Link>
-            <Link
-              to="/safety"
-              className="w-full sm:w-auto px-8 py-4 rounded bg-[#1C2420] border border-[#3E6B48] text-[#F7F5F0] text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#14281D] hover:border-[#E06D22]/50 transition-all duration-300"
-            >
-              REVIEW SAFETY & QUALITY STANDARDS
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

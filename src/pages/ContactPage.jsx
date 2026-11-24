@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import PageHeader from '../components/common/PageHeader';
+import { ArrowUpRight, CheckCircle2, ChevronRight, Phone, Mail, MapPin, Sparkles } from 'lucide-react';
+import PageHero from '../components/common/PageHero';
 import ScrollReveal from '../components/reactbits/ScrollReveal';
 import { contactData } from '../data/websiteData';
 
@@ -30,6 +31,7 @@ export default function ContactPage() {
     const project = params.get('project');
     const topic = params.get('topic');
     const attraction = params.get('attraction');
+    const service = params.get('service');
 
     if (sector) {
       setFormData(prev => ({
@@ -54,6 +56,11 @@ export default function ContactPage() {
         attractions: attraction,
         description: `Technical inquiry regarding attraction: ${attraction}. \n\n`
       }));
+    } else if (service) {
+      setFormData(prev => ({
+        ...prev,
+        description: `Inquiry regarding engineering service: ${service}. \n\n`
+      }));
     }
   }, [location.search]);
 
@@ -73,67 +80,71 @@ export default function ContactPage() {
   };
 
   const contactMetrics = [
-    { label: "Turnaround Time", value: "48 Hours" },
-    { label: "Global Reach", value: "Pan-Asia" },
-    { label: "Project Delivery", value: "Turnkey" },
-    { label: "Engineering Scope", value: "End-to-End" }
+    { label: "Turnaround Time", value: "48-Hour Response" },
+    { label: "Engineering Scope", value: "Turnkey End-to-End" },
+    { label: "Geographic Delivery", value: "Pan-Asia & Global" }
   ];
 
   const faqs = [
     {
-      q: "What information is needed to begin a feasibility study?",
-      a: "Ideally, site boundary dimensions (or Google Earth KMZ / topographical survey), photos of terrain, target guest demographics, and anticipated timeline."
+      q: "What initial information is needed to begin a site appraisal?",
+      a: "Ideally, site boundary dimensions, Google Earth KMZ or topographical contours, high-level photos of the terrain, target demographics, and your anticipated timeline."
     },
     {
-      q: "Do you design for natural trees or dedicated steel towers?",
+      q: "Do you design for natural forest trees or dedicated steel towers?",
       a: "Both. We design environmentally sensitive tree-mounted installations using protective cambium wraps as well as free-standing hot-dip galvanized steel towers engineered to site wind loads."
     },
     {
-      q: "What safety standards govern your installations?",
+      q: "What international safety standards govern your installations?",
       a: "Our engineering and rigging practices adhere to EN 15567 (European Standards for Ropes Courses & Ziplines) and ACCT (Association for Challenge Course Technology) safety guidelines."
     },
     {
-      q: "Do you provide operator and staff training?",
+      q: "Do you provide on-site operator and staff training?",
       a: "Yes. Every turnkey installation includes comprehensive on-site operator training, daily inspection checklists, emergency rescue drills, and operational manuals."
     }
   ];
 
   return (
-    <div className="bg-[#14281D] text-[#F7F5F0] min-h-screen pt-20">
-      {/* Page Header */}
-      <PageHeader
+    <div className="w-full bg-[#F7F5F0] text-[#1C2420]">
+      {/* 01 — Full-Screen Page Hero (100svh, Dark & Cinematic) */}
+      <PageHero
+        eyebrow="START A DISCUSSION // B2B CONSULTATION"
+        title="REQUEST A PROJECT"
+        highlightText="PROPOSAL."
+        subtitle="Share your site parameters, attraction vision, and commercial timeline. Receive a tailored engineering feasibility and budget estimate within 48 hours."
+        bgImage="/images/giant-swing.jpg"
         breadcrumbs={[{ label: "Contact Us" }]}
-        eyebrow="COMMERCIAL PROPOSAL & SITE ADVISORY"
-        title="REQUEST A PROJECT PROPOSAL."
-        subtitle="SHARE YOUR PROJECT PARAMETERS. RECEIVE A TAILORED ENGINEERING FEASIBILITY & ESTIMATE."
-        description="Whether you are planning a multi-acre outdoor adventure park, a scenic resort zipline, an indoor entertainment hub, or specialized institutional obstacle training courses, our senior engineering team is ready to assist."
+        primaryCTA={{ label: "FILL PROPOSAL FORM", href: "#contact-content" }}
+        secondaryCTA={{ label: "EXPLORE SOLUTIONS", href: "/solutions" }}
         metrics={contactMetrics}
+        scrollTargetId="contact-content"
       />
 
-      {/* Main Content: Split Grid */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 02 — Main Consultation Section (LIGHT: Warm Sand Surface #F7F5F0) */}
+      <section id="contact-content" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
           {/* Left Column: Coordinates & Parameters */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal>
-              <div className="p-8 rounded-xl bg-[#1C2420] border border-[#3E6B48]/40 shadow-xl">
-                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold mb-3">
+              <div className="p-8 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-4">
+                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold">
                   DIRECT B2B COORDINATION
                 </div>
-                <h3 className="text-2xl font-bold text-[#F7F5F0] mb-4">
+                <h3 className="text-2xl font-display font-extrabold uppercase text-[#14281D]">
                   Engineering Partnership
                 </h3>
-                <p className="text-sm text-[#F7F5F0]/75 font-light leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#525E57] font-normal leading-relaxed">
                   ZIPLINE ASIA works directly with resort owners, developers, tourism authorities, and adventure operators across India, Asia, and international markets.
                 </p>
 
-                <div className="space-y-4 pt-4 border-t border-[#3E6B48]/30 text-xs font-mono">
+                <div className="space-y-3 pt-3 border-t border-[#1C2420]/10 text-xs font-mono">
                   {contactData.contactPoints.map((cp, idx) => (
-                    <div key={idx} className="p-3.5 rounded bg-[#14281D] border border-[#3E6B48]/20">
+                    <div key={idx} className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
                       <div className="text-[#E06D22] font-bold uppercase tracking-wider mb-1">
                         {cp.label}
                       </div>
-                      <div className="text-[#F7F5F0]/80 font-normal leading-relaxed">
+                      <div className="text-[#14281D] font-normal leading-relaxed">
                         {cp.value}
                       </div>
                     </div>
@@ -144,14 +155,14 @@ export default function ContactPage() {
 
             {/* Turnaround Protocol Box */}
             <ScrollReveal delay={0.1}>
-              <div className="p-6 rounded-xl bg-[#0E1C14] border border-[#3E6B48]/30">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-mono text-[#F7F5F0] font-bold uppercase tracking-wider">
+              <div className="p-6 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-xs font-mono text-[#14281D] font-bold uppercase tracking-wider">
                     PROPOSAL TURNAROUND PROTOCOL
                   </span>
                 </div>
-                <p className="text-xs text-[#F7F5F0]/70 font-light leading-relaxed">
+                <p className="text-xs text-[#525E57] font-normal leading-relaxed">
                   Following submission of your project parameters, our engineering desk reviews site topography and produces an initial attraction configuration outline within 48 to 72 business hours.
                 </p>
               </div>
@@ -159,17 +170,17 @@ export default function ContactPage() {
 
             {/* FAQ Accordion / Box */}
             <ScrollReveal delay={0.15}>
-              <div className="p-6 rounded-xl bg-[#1C2420] border border-[#3E6B48]/30">
-                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold mb-4">
+              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-4">
+                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold">
                   FREQUENTLY ASKED QUESTIONS
                 </div>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <div key={idx} className="border-b border-[#3E6B48]/20 pb-3 last:border-0 last:pb-0">
-                      <div className="text-sm font-semibold text-[#F7F5F0] mb-1">
+                    <div key={idx} className="border-b border-[#1C2420]/10 pb-3 last:border-0 last:pb-0">
+                      <div className="text-xs sm:text-sm font-display font-bold uppercase text-[#14281D] mb-1">
                         {faq.q}
                       </div>
-                      <p className="text-xs text-[#F7F5F0]/70 font-light leading-relaxed">
+                      <p className="text-xs text-[#525E57] font-normal leading-relaxed">
                         {faq.a}
                       </p>
                     </div>
@@ -179,36 +190,34 @@ export default function ContactPage() {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: 10-Field Form */}
+          {/* Right Column: 10-Field Form (LIGHT: Spacious White Card) */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.1}>
-              <div className="p-8 sm:p-10 rounded-2xl bg-[#1C2420] border border-[#3E6B48]/50 shadow-2xl relative">
+              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#3E6B48]/20 shadow-xl relative">
                 <div className="mb-8">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E06D22]/10 border border-[#E06D22]/30 text-[#E06D22] text-xs font-mono tracking-widest uppercase mb-3">
                     STEP 01 // SPECIFY PARAMETERS
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#F7F5F0]">
+                  <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-[#14281D]">
                     Project Consultation Form
                   </h3>
-                  <p className="mt-2 text-sm text-[#F7F5F0]/70 font-light">
+                  <p className="mt-2 text-xs sm:text-sm text-[#525E57] font-normal">
                     Complete the details below to receive a customized feasibility proposal from our engineering team.
                   </p>
                 </div>
 
                 {submitted ? (
-                  <div className="p-8 rounded-xl bg-[#14281D] border border-emerald-500/50 text-center animate-fade-in">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center mx-auto mb-4 text-emerald-400">
-                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                  <div className="p-8 rounded-xl bg-[#F7F5F0] border border-emerald-500/50 text-center animate-fade-in">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center mx-auto mb-4 text-emerald-600">
+                      <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h4 className="text-2xl font-bold text-[#F7F5F0] mb-2">
+                    <h4 className="text-2xl font-display font-extrabold uppercase text-[#14281D] mb-2">
                       Proposal Request Received
                     </h4>
-                    <p className="text-sm text-[#F7F5F0]/80 font-light max-w-md mx-auto mb-6">
-                      Thank you for sharing your project parameters. A technical director from ZIPLINE ASIA will review your site details and contact you within 48 hours.
+                    <p className="text-xs sm:text-sm text-[#525E57] font-normal max-w-md mx-auto mb-6 leading-relaxed">
+                      Thank you for sharing your project parameters. A technical director from ZIPLINE ASIA will review your site details and contact you within 48 business hours.
                     </p>
-                    <div className="inline-block p-3 rounded bg-[#0E1C14] border border-[#3E6B48]/40 text-xs font-mono text-[#E06D22] mb-6">
+                    <div className="inline-block p-3 rounded-lg bg-white border border-[#3E6B48]/20 text-xs font-mono text-[#E06D22] font-bold mb-6 shadow-2xs">
                       REFERENCE TICKET: ZA-PROPOSAL-{Math.floor(100000 + Math.random() * 900000)}
                     </div>
                     <div>
@@ -228,7 +237,7 @@ export default function ContactPage() {
                             description: ''
                           });
                         }}
-                        className="px-6 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#c85b18] transition-colors"
+                        className="px-6 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] transition-colors cursor-pointer"
                       >
                         Submit Another Request
                       </button>
@@ -239,7 +248,7 @@ export default function ContactPage() {
                     {/* Row 1: Name & Company */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Full Name *
                         </label>
                         <input
@@ -249,11 +258,11 @@ export default function ContactPage() {
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder="e.g. Rahul Sharma"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Organization / Company *
                         </label>
                         <input
@@ -263,7 +272,7 @@ export default function ContactPage() {
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="e.g. Highland Valley Resorts"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                     </div>
@@ -271,7 +280,7 @@ export default function ContactPage() {
                     {/* Row 2: Email & Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Official Email *
                         </label>
                         <input
@@ -281,11 +290,11 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="e.g. rahul@highlandresorts.com"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Phone / WhatsApp *
                         </label>
                         <input
@@ -295,7 +304,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="e.g. +91 98765 43210"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                     </div>
@@ -303,7 +312,7 @@ export default function ContactPage() {
                     {/* Row 3: Location & Project Typology */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Project Location (City / State / Country) *
                         </label>
                         <input
@@ -313,21 +322,21 @@ export default function ContactPage() {
                           value={formData.location}
                           onChange={handleChange}
                           placeholder="e.g. Manali, Himachal Pradesh, India"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Project Typology *
                         </label>
                         <select
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         >
                           {contactData.projectTypes.map((pt, idx) => (
-                            <option key={idx} value={pt} className="bg-[#14281D] text-white">
+                            <option key={idx} value={pt} className="bg-white text-[#14281D]">
                               {pt}
                             </option>
                           ))}
@@ -338,7 +347,7 @@ export default function ContactPage() {
                     {/* Row 4: Land Area & Budget */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Land / Footprint Area
                         </label>
                         <input
@@ -347,21 +356,21 @@ export default function ContactPage() {
                           value={formData.landArea}
                           onChange={handleChange}
                           placeholder="e.g. 5 Acres / 15,000 sq ft"
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                           Estimated Budget Framework *
                         </label>
                         <select
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                         >
                           {contactData.budgetRanges.map((br, idx) => (
-                            <option key={idx} value={br} className="bg-[#14281D] text-white">
+                            <option key={idx} value={br} className="bg-white text-[#14281D]">
                               {br}
                             </option>
                           ))}
@@ -371,7 +380,7 @@ export default function ContactPage() {
 
                     {/* Desired Attractions */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                         Desired Attraction Mix (Optional)
                       </label>
                       <input
@@ -380,13 +389,13 @@ export default function ContactPage() {
                         value={formData.attractions}
                         onChange={handleChange}
                         placeholder="e.g. Zipline, Sky Cycle, Bungee, 2-Tier Rope Course"
-                        className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm"
+                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
                       />
                     </div>
 
                     {/* Project Overview */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-[#F7F5F0]/70 mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
                         Project Overview & Site Context *
                       </label>
                       <textarea
@@ -396,7 +405,7 @@ export default function ContactPage() {
                         value={formData.description}
                         onChange={handleChange}
                         placeholder="Provide details about terrain topography, natural features, target audience, planned timeline, or specific engineering requirements..."
-                        className="w-full px-4 py-3 rounded-lg bg-[#14281D] border border-[#3E6B48]/50 text-white placeholder-[#F7F5F0]/30 focus:outline-none focus:border-[#E06D22] transition-colors text-sm resize-none"
+                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm resize-none"
                       />
                     </div>
 
@@ -405,7 +414,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full py-4 rounded-xl bg-[#E06D22] text-white text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#c85b18] transition-all duration-300 shadow-xl shadow-[#E06D22]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                        className="w-full py-4 rounded-xl bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#C85B17] transition-all duration-300 shadow-xl shadow-[#E06D22]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                       >
                         {submitting ? (
                           <>
@@ -418,21 +427,62 @@ export default function ContactPage() {
                         ) : (
                           <>
                             <span>SUBMIT PROPOSAL REQUEST</span>
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
+                            <ArrowUpRight className="w-4 h-4" />
                           </>
                         )}
                       </button>
                     </div>
 
-                    <div className="text-[11px] font-mono text-[#F7F5F0]/50 text-center">
+                    <div className="text-[11px] font-mono text-[#525E57] text-center">
                       * All submitted project specifications are treated under strict commercial non-disclosure.
                     </div>
                   </form>
                 )}
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — Technical Support Coordinates & Geographic Coverage (DARK High-Impact Accent) */}
+      <section className="py-16 sm:py-24 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-t border-[#3E6B48]/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+                GEOGRAPHIC REACH
+              </span>
+              <h3 className="text-xl font-display font-bold uppercase text-white">
+                Pan-Asia & International
+              </h3>
+              <p className="text-xs text-[#F7F5F0]/75 leading-relaxed font-light">
+                Turnkey installations and technical rigging oversight executed across mountainous and coastal terrains throughout India, South Asia, and international destinations.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#3E6B48] block">
+                RESPONSE GUARANTEE
+              </span>
+              <h3 className="text-xl font-display font-bold uppercase text-white">
+                48-Hour Turnaround
+              </h3>
+              <p className="text-xs text-[#F7F5F0]/75 leading-relaxed font-light">
+                Every commercial inquiry receives a dedicated project appraisal and preliminary attraction configuration matrix from our senior rigging engineering desk.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+                TECHNICAL INTEGRITY
+              </span>
+              <h3 className="text-xl font-display font-bold uppercase text-white">
+                EN 15567 / ACCT
+              </h3>
+              <p className="text-xs text-[#F7F5F0]/75 leading-relaxed font-light">
+                All structural calculations, catenary load curves, and proof-load testing protocols strictly align with international adventure industry standards.
+              </p>
+            </div>
           </div>
         </div>
       </section>

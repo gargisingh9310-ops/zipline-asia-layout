@@ -4,41 +4,39 @@ import {
   ShieldCheck, 
   Compass, 
   Award, 
-  CheckCircle2, 
   ArrowUpRight, 
-  Wrench, 
-  Layers, 
-  Workflow, 
-  Target,
   Sparkles
 } from 'lucide-react';
-import PageHeader from '../components/common/PageHeader';
+import PageHero from '../components/common/PageHero';
 import Founder from '../components/Founder/Founder';
 import WhyChoose from '../components/WhyChoose/WhyChoose';
 import Process from '../components/Process/Process';
 import ScrollReveal from '../components/reactbits/ScrollReveal';
-import { aboutData, brandData } from '../data/websiteData';
+import { aboutData } from '../data/websiteData';
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-[#14281D] text-white">
-      {/* 01 — Page Header */}
-      <PageHeader
-        badge="ABOUT ZIPLINE ASIA"
-        title="BUILT FOR ADVENTURE. ENGINEERED FOR LONGEVITY."
-        subtitle="At ZIPLINE ASIA, we believe that adventure is more than an activity; it is an engineered experience that brings people together, encourages exploration, and creates lasting commercial destination value."
+    <div className="w-full bg-[#F7F5F0] text-[#1C2420]">
+      {/* 01 — Full-Screen Page Hero (100svh, Dark & Cinematic) */}
+      <PageHero
+        eyebrow="ABOUT ZIPLINE ASIA // EST. 1995"
+        title="BUILT FOR ADVENTURE."
+        highlightText="ENGINEERED FOR LONGEVITY."
+        subtitle="At ZIPLINE ASIA, we combine three decades of mountaineering heritage, technical rigging calculations, and turnkey engineering to build commercial adventure destinations across Asia."
+        bgImage="/images/zipline-tower-launch.jpg"
         breadcrumbs={[{ label: 'About Us' }]}
-        ctaText="REQUEST A PROPOSAL"
-        ctaHref="/contact"
-        stats={[
-          { value: "30+ Years", label: "Heritage (Est. 1995)" },
+        primaryCTA={{ label: "EXPLORE OUR SOLUTIONS", href: "/solutions" }}
+        secondaryCTA={{ label: "REQUEST A PROPOSAL", href: "/contact" }}
+        metrics={[
+          { value: "30+ Years", label: "Industry Legacy (Est. 1995)" },
           { value: "12 : 1", label: "Commercial Safety Factor" },
           { value: "100%", label: "Turnkey Single Source" }
         ]}
+        scrollTargetId="about-content"
       />
 
-      {/* 02 — Company Story & Heritage (Warm Sand Surface) */}
-      <section className="relative w-full py-16 sm:py-24 bg-[#F7F5F0] text-[#1C2420] canopy-grid-light overflow-hidden">
+      {/* 02 — Company Story & Heritage (LIGHT: Warm Sand Surface #F7F5F0) */}
+      <section id="about-content" className="relative w-full py-16 sm:py-24 bg-[#F7F5F0] text-[#1C2420] canopy-grid-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -68,22 +66,22 @@ export default function AboutPage() {
               {/* Heritage Milestones */}
               <ScrollReveal animation="fade-up" delay={0.15}>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#1C2420]/15">
-                  <div className="p-3.5 rounded-xl bg-white border border-[#1C2420]/10 shadow-2xs space-y-1">
+                  <div className="p-4 rounded-xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-1">
                     <span className="text-2xl font-mono font-extrabold text-[#E06D22] block">1995</span>
                     <span className="text-xs font-bold text-[#14281D] uppercase block">Technical Inception</span>
-                    <p className="text-[11px] text-[#525E57]">Pioneered commercial wire rope catenary systems in high-altitude terrain.</p>
+                    <p className="text-[11px] text-[#525E57] leading-relaxed">Pioneered commercial wire rope catenary systems in high-altitude terrain.</p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white border border-[#1C2420]/10 shadow-2xs space-y-1">
+                  <div className="p-4 rounded-xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-1">
                     <span className="text-2xl font-mono font-extrabold text-[#3E6B48] block">100+</span>
                     <span className="text-xs font-bold text-[#14281D] uppercase block">Engineered Systems</span>
-                    <p className="text-[11px] text-[#525E57]">Commercial ziplines, cantilever bungee towers, giant swings, and rope courses.</p>
+                    <p className="text-[11px] text-[#525E57] leading-relaxed">Commercial ziplines, cantilever bungee towers, giant swings, and rope courses.</p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white border border-[#1C2420]/10 shadow-2xs space-y-1">
+                  <div className="p-4 rounded-xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-1">
                     <span className="text-2xl font-mono font-extrabold text-[#14281D] block">Turnkey</span>
                     <span className="text-xs font-bold text-[#14281D] uppercase block">Single-Source</span>
-                    <p className="text-[11px] text-[#525E57]">Single commercial accountability from topography mapping to client handover.</p>
+                    <p className="text-[11px] text-[#525E57] leading-relaxed">Single commercial accountability from topography mapping to client handover.</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -102,10 +100,10 @@ export default function AboutPage() {
             {/* Right Column: Architectural Photography */}
             <div className="lg:col-span-5 relative">
               <ScrollReveal animation="zoom-in" delay={0.15}>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#1C2420]/15 bg-[#14281D]">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#3E6B48]/20 bg-[#14281D]">
                   <img
-                    src="/images/zipline-tower-launch.jpg"
-                    alt="ZIPLINE ASIA Commercial Zipline Launch Tower Installation"
+                    src="/images/adventure-park-infrastructure.jpg"
+                    alt="ZIPLINE ASIA Commercial Adventure Park Infrastructure"
                     className="w-full h-[400px] sm:h-[500px] object-cover object-center"
                     loading="lazy"
                   />
@@ -116,8 +114,8 @@ export default function AboutPage() {
                     <span className="text-[10px] font-mono uppercase text-[#E06D22] font-bold block mb-1">
                       COMMERCIAL ADVENTURE INFRASTRUCTURE
                     </span>
-                    <p className="text-xs text-[#F7F5F0]/90">
-                      Engineered launch tower and valley catenary wire rope systems designed for continuous commercial operation.
+                    <p className="text-xs text-[#F7F5F0]/90 leading-relaxed font-light">
+                      Engineered launch towers and valley catenary wire rope systems designed for continuous commercial operation.
                     </p>
                   </div>
                 </div>
@@ -129,8 +127,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 03 — Vision & Mission (Deep Pine Green Surface) */}
-      <section className="relative w-full py-16 sm:py-24 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-t border-[#3E6B48]/30">
+      {/* 03 — Vision & Mission (DARK High-Impact Accent: Deep Pine Green #14281D) */}
+      <section className="relative w-full py-16 sm:py-24 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-y border-[#3E6B48]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           
           <div className="max-w-3xl mb-12 space-y-2">
@@ -197,17 +195,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 04 — Founder & Leadership Section */}
+      {/* 04 — Founder & Leadership Section (LIGHT Surface) */}
       <Founder />
 
-      {/* 05 — Our Approach / Phased Methodology */}
+      {/* 05 — Our Approach / Phased Methodology (LIGHT Surface) */}
       <Process />
 
       {/* 06 — Why Choose ZIPLINE ASIA (Matrix) */}
       <WhyChoose />
 
-      {/* 07 — Bottom Destination Proposal CTA Banner */}
-      <section className="relative w-full py-16 bg-[#14281D] text-white border-t border-[#3E6B48]/30 overflow-hidden">
+      {/* 07 — Bottom Destination Proposal CTA Banner (DARK Finish) */}
+      <section className="relative w-full py-16 sm:py-20 bg-gradient-to-b from-[#14281D] to-[#0A160F] text-white border-t border-[#3E6B48]/30 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 text-center flex flex-col items-center space-y-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22]">
             TURNKEY ENGINEERING COLLABORATION
@@ -215,16 +213,21 @@ export default function AboutPage() {
           <h2 className="text-2xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-white max-w-2xl">
             Have an Adventure Infrastructure Project in Mind?
           </h2>
-          <p className="text-sm sm:text-base text-[#F7F5F0]/80 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-[#F7F5F0]/80 max-w-xl mx-auto font-light leading-relaxed">
             Connect directly with our engineering team to evaluate site feasibility, catenary cable design, and project planning parameters.
           </p>
-          <div className="pt-2">
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta transition-all shadow-xl"
+              className="px-8 py-4 rounded-md bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta transition-all shadow-xl"
             >
-              <span>REQUEST PROJECT PROPOSAL</span>
-              <ArrowUpRight className="w-4 h-4 text-white" />
+              REQUEST PROJECT PROPOSAL
+            </Link>
+            <Link
+              to="/solutions"
+              className="px-8 py-4 rounded-md bg-white/5 border border-white/20 text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-white/10 hover:border-[#E06D22] transition-all"
+            >
+              EXPLORE OUR SERVICES
             </Link>
           </div>
         </div>
