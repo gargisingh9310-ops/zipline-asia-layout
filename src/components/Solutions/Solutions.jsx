@@ -95,8 +95,13 @@ export default function Solutions() {
         
         {/* Section Header: Compact & Purposeful */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-8 border-b border-[#1C2420]/10">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl space-y-2">
             <ScrollReveal animation="fade-up">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+                {solutionsData?.label || "OUR SOLUTIONS & SERVICES"}
+              </span>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up" delay={0.05}>
               <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#1C2420] leading-[1.08]">
                 {solutionsData?.heading || "COMPLETE SOLUTIONS. LIMITLESS POSSIBILITIES."}
               </h2>
@@ -105,7 +110,8 @@ export default function Solutions() {
 
           <ScrollReveal animation="fade-up" delay={0.1}>
             <p className="text-xs sm:text-sm text-[#525E57] max-w-md font-normal leading-relaxed">
-              {solutionsData?.supportingText || "Explore integrated adventure infrastructure solutions designed to turn destination concepts into engaging real-world experiences."}
+              <strong className="text-[#14281D] block mb-1 font-semibold">{solutionsData?.mainMessage}</strong>
+              {solutionsData?.supportingText}
             </p>
           </ScrollReveal>
         </div>
@@ -139,7 +145,7 @@ export default function Solutions() {
                       <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#14281D]">
                         <img
                           src={service?.image || '/images/hero-zipline.jpg'}
-                          alt={service?.title || 'ZIPLINE ASIA Service'}
+                          alt={service?.title || 'Adventure Park Solutions Service'}
                           className="w-full h-full object-cover pointer-events-none transition-transform duration-500 ease-out group-hover:scale-105"
                           loading="lazy"
                         />
@@ -260,7 +266,7 @@ export default function Solutions() {
                 <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#14281D]">
                   <img
                     src={service?.image || '/images/hero-zipline.jpg'}
-                    alt={service?.title || 'ZIPLINE ASIA Service'}
+                    alt={service?.title || 'Adventure Park Solutions Service'}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />

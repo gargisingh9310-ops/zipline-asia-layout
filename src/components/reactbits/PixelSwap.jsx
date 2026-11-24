@@ -4,7 +4,7 @@ import './PixelSwap.css';
 export default function PixelSwap({
   frontImage,
   backImage,
-  alt = 'ZIPLINE ASIA Adventure Infrastructure',
+  alt = 'Adventure Park Solutions (APS) Infrastructure',
   pattern = 'diagonal', // 'diagonal' | 'left-to-right' | 'random' | 'center-out'
   trigger = 'hover', // 'hover' | 'click'
   pixelSize = 36,

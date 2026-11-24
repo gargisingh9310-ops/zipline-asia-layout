@@ -49,10 +49,13 @@ export default function Footer() {
               {footerData.intro}
             </p>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-1">
               <span className="text-xs font-mono text-[#F7F5F0]/90 uppercase tracking-wider font-semibold block">
-                Turnkey Engineering & Infrastructure
+                {footerData.positioning || "Complete Adventure Infrastructure Solutions Company"}
               </span>
+              <p className="text-[11px] font-mono text-[#E06D22] tracking-wide">
+                {footerData.closingMessage}
+              </p>
             </div>
           </ScrollReveal>
 

@@ -20,14 +20,17 @@ export default function WhyChoose() {
           {/* Left Column (col-span-5): Bold Editorial Heading & Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
             <ScrollReveal animation="fade-up">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block mb-2">
+                {whyChooseData?.label || "WHY CHOOSE APS"}
+              </span>
               <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#1C2420] leading-[1.08]">
-                {whyChooseData?.heading || "WHERE ENGINEERING MEETS ADVENTURE."}
+                {whyChooseData?.heading || "ONE PARTNER. COMPLETE ADVENTURE INFRASTRUCTURE."}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={0.1}>
               <p className="text-sm sm:text-base text-[#525E57] font-normal leading-relaxed">
-                {whyChooseData?.supportingText || "Developing an adventure destination requires multidisciplinary coordination. ZIPLINE ASIA brings together engineering precision, equipment manufacturing, and turnkey project delivery."}
+                {whyChooseData?.supportingText || "Developing an adventure destination requires multidisciplinary coordination. Adventure Park Solutions brings together engineering precision, equipment manufacturing, and turnkey project delivery."}
               </p>
             </ScrollReveal>
 

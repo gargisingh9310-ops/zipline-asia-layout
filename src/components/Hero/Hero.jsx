@@ -129,18 +129,18 @@ export default function Hero() {
             ref={headlineRef}
             className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-display font-extrabold tracking-tight text-white leading-[1.14] drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
           >
-            Engineering Adventure Destinations.{' '}
+            Engineering Experiences.{' '}
             <span className="text-[#E06D22]">
-              From Vision to Reality.
+              Building Adventures.
             </span>
           </h1>
 
-          {/* Shortened Supporting Text */}
+          {/* Supporting Text */}
           <p
             ref={descRef}
-            className="text-xs sm:text-base md:text-xl text-[#F7F5F0]/95 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
+            className="text-xs sm:text-sm md:text-base text-[#F7F5F0]/95 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
           >
-            End-to-end adventure infrastructure solutions for resorts, tourism destinations and adventure parks.
+            {heroData.supportingText}
           </p>
 
           {/* Action Buttons: Terracotta CTA + Clean Stone/White Border Secondary */}

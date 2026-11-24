@@ -97,7 +97,7 @@ export default function Founder() {
                     </div>
 
                     <div className="pt-4 border-t border-[#3E6B48]/30 flex items-center justify-between text-[11px] font-mono text-[#F7F5F0]/70">
-                      <span>ZIPLINE ASIA TECHNICAL DIRECTION</span>
+                      <span>ADVENTURE PARK SOLUTIONS TECHNICAL DIRECTION</span>
                       <span className="text-[#E06D22] font-bold">EST. 1995</span>
                     </div>
                   </div>

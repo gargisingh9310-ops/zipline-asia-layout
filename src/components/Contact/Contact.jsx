@@ -10,8 +10,11 @@ export default function Contact() {
     companyName: '',
     email: '',
     phone: '',
-    country: '',
-    projectType: 'Zipline Design & Installation',
+    countryLocation: '',
+    projectType: contactData.projectTypes[0] || 'Turnkey Adventure Park Development',
+    landArea: '',
+    attractionsRequired: '',
+    budget: contactData.budgetRanges?.[2] || '₹50 Lakhs – ₹1 Crore',
     message: ''
   });
 
@@ -49,14 +52,14 @@ export default function Contact() {
   const validate = () => {
     const errs = {};
     if (!formData.fullName.trim()) errs.fullName = 'Full Name is required';
-    if (!formData.companyName.trim()) errs.companyName = 'Company Name is required';
+    if (!formData.companyName.trim()) errs.companyName = 'Company / Organisation is required';
     if (!formData.email.trim()) {
       errs.email = 'Email Address is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errs.email = 'Please provide a valid email address';
     }
-    if (!formData.country.trim()) errs.country = 'Country is required';
-    if (!formData.message.trim()) errs.message = 'Project message is required';
+    if (!formData.countryLocation.trim()) errs.countryLocation = 'Country & Project Location is required';
+    if (!formData.message.trim()) errs.message = 'Brief Project Description is required';
     return errs;
   };
 
@@ -78,8 +81,11 @@ export default function Contact() {
         companyName: '',
         email: '',
         phone: '',
-        country: '',
-        projectType: 'Zipline Design & Installation',
+        countryLocation: '',
+        projectType: contactData.projectTypes[0] || 'Turnkey Adventure Park Development',
+        landArea: '',
+        attractionsRequired: '',
+        budget: contactData.budgetRanges?.[2] || '₹50 Lakhs – ₹1 Crore',
         message: ''
       });
     }, 4500);
@@ -113,6 +119,9 @@ export default function Contact() {
         
         {/* Main Heading */}
         <ScrollReveal animation="fade-up">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block mb-2">
+            START YOUR PROJECT JOURNEY
+          </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.1] mb-4 drop-shadow-md">
             Ready to Create an <br className="hidden sm:inline" />
             <span className="text-white">Adventure Destination?</span>
@@ -122,7 +131,7 @@ export default function Contact() {
         {/* Supporting Description */}
         <ScrollReveal animation="fade-up" delay={0.1}>
           <p className="text-sm sm:text-base text-[#F7F5F0] font-normal leading-relaxed max-w-xl mx-auto mb-6 drop-shadow">
-            Bring your vision to life with professionally designed adventure infrastructure and integrated project solutions.
+            From an Idea to an Attraction. From an Attraction to an Adventure Destination. Bring your vision to life with complete turnkey infrastructure solutions.
           </p>
         </ScrollReveal>
 
@@ -134,12 +143,12 @@ export default function Contact() {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-lg bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:scale-105 hover:shadow-glow-terracotta transition-all duration-300 group select-none shadow-2xl cursor-pointer"
             >
-              <span>DISCUSS YOUR PROJECT</span>
+              <span>REQUEST A PROJECT PROPOSAL</span>
               <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
 
             <p className="text-xs font-mono text-[#F7F5F0]/80 tracking-wide">
-              From initial planning to installation, let's discuss your project requirements.
+              Single-source coordination from initial concept to certified installation.
             </p>
           </div>
         </ScrollReveal>
@@ -157,7 +166,7 @@ export default function Contact() {
           }}
         >
           <div
-            className="relative w-full max-w-2xl bg-white text-[#1C2420] rounded-2xl shadow-2xl border border-[#1C2420]/10 max-h-[90vh] overflow-y-auto p-5 sm:p-10 my-auto"
+            className="relative w-full max-w-2xl bg-white text-[#1C2420] rounded-2xl shadow-2xl border border-[#1C2420]/10 max-h-[90vh] overflow-y-auto p-5 sm:p-8 my-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-enquiry-title"
@@ -178,10 +187,10 @@ export default function Contact() {
                   <CheckCircle2 className="w-9 h-9" />
                 </div>
                 <h3 className="text-2xl font-display font-extrabold uppercase text-[#1C2420]">
-                  PROJECT ENQUIRY RECEIVED
+                  PROJECT PROPOSAL REQUEST RECEIVED
                 </h3>
                 <p className="text-sm text-[#525E57] max-w-md mx-auto leading-relaxed">
-                  Thank you for contacting ZIPLINE ASIA. Our adventure infrastructure engineering specialists will review your project parameters and reach out promptly.
+                  Thank you for contacting Adventure Park Solutions (APS). Our adventure infrastructure engineering specialists will review your project parameters and reach out promptly.
                 </p>
                 <div className="pt-4">
                   <button
@@ -197,24 +206,24 @@ export default function Contact() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+              <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-widest text-[#E06D22] font-bold block mb-1">
-                    PROJECT PARAMETERS INQUIRY
+                    PROJECT PARAMETERS & PROPOSAL
                   </span>
                   <h3 id="modal-enquiry-title" className="text-2xl font-display font-extrabold text-[#1C2420] uppercase">
-                    Initiate Engineering Feasibility
+                    Request a Project Proposal
                   </h3>
                   <p className="text-xs sm:text-sm text-[#525E57] mt-1">
-                    Please provide your project parameters below. Our engineering team will review your site requirements and contact you.
+                    Please provide your project parameters below. Our engineering and master planning team will evaluate your requirements and contact you.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Full Name *
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Name *
                     </label>
                     <input
                       type="text"
@@ -222,33 +231,33 @@ export default function Contact() {
                       placeholder="Your Full Name"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border ${errors.fullName ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border ${errors.fullName ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
                     />
-                    {errors.fullName && <span className="text-[11px] text-[#E06D22] font-mono mt-1 block">{errors.fullName}</span>}
+                    {errors.fullName && <span className="text-[11px] text-[#E06D22] font-mono mt-0.5 block">{errors.fullName}</span>}
                   </div>
 
                   {/* Company Name */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Company / Resort Name *
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Company / Organisation *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Company or Resort"
+                      placeholder="Company, Resort or Organisation"
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border ${errors.companyName ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border ${errors.companyName ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
                     />
-                    {errors.companyName && <span className="text-[11px] text-[#E06D22] font-mono mt-1 block">{errors.companyName}</span>}
+                    {errors.companyName && <span className="text-[11px] text-[#E06D22] font-mono mt-0.5 block">{errors.companyName}</span>}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {/* Email Address */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Business Email Address *
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Email Address *
                     </label>
                     <input
                       type="email"
@@ -256,52 +265,52 @@ export default function Contact() {
                       placeholder="corporate@domain.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border ${errors.email ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border ${errors.email ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
                     />
-                    {errors.email && <span className="text-[11px] text-[#E06D22] font-mono mt-1 block">{errors.email}</span>}
+                    {errors.email && <span className="text-[11px] text-[#E06D22] font-mono mt-0.5 block">{errors.email}</span>}
                   </div>
 
-                  {/* Phone Number */}
+                  {/* Contact Number */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Phone Number
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Contact Number
                     </label>
                     <input
                       type="tel"
                       placeholder="+91 / International"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Country */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  {/* Country & Project Location */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Country *
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Country & Project Location *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Project Country / Region"
-                      value={formData.country}
-                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border ${errors.country ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
+                      placeholder="City, State, Country"
+                      value={formData.countryLocation}
+                      onChange={(e) => setFormData({ ...formData, countryLocation: e.target.value })}
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border ${errors.countryLocation ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors`}
                     />
-                    {errors.country && <span className="text-[11px] text-[#E06D22] font-mono mt-1 block">{errors.country}</span>}
+                    {errors.countryLocation && <span className="text-[11px] text-[#E06D22] font-mono mt-0.5 block">{errors.countryLocation}</span>}
                   </div>
 
-                  {/* Project Type */}
+                  {/* Type of Project */}
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                      Project Type
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Type of Project
                     </label>
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors cursor-pointer"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors cursor-pointer"
                     >
                       {contactData.projectTypes.map((type) => (
                         <option key={type} value={type}>
@@ -312,30 +321,83 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Message */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  {/* Approximate Land Area */}
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Approximate Land Area
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. 2 Acres, 15,000 sq ft, Mountain Valley"
+                      value={formData.landArea}
+                      onChange={(e) => setFormData({ ...formData, landArea: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors"
+                    />
+                  </div>
+
+                  {/* Project Budget */}
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                      Project Budget
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors cursor-pointer"
+                    >
+                      {contactData.budgetRanges?.map((rng) => (
+                        <option key={rng} value={rng}>
+                          {rng}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Attractions Required */}
                 <div>
-                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1.5">
-                    Project Overview & Vision *
+                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                    Attractions Required
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Ziplines, Sky Cycle, Obstacle Course, Soft Play, Trampolines..."
+                    value={formData.attractionsRequired}
+                    onChange={(e) => setFormData({ ...formData, attractionsRequired: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border border-[#1C2420]/15 text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Brief Project Description */}
+                <div>
+                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#1C2420] mb-1">
+                    Brief Project Description *
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
-                    placeholder="Tell us about the site location, terrain, planned timeline, and attraction expectations..."
+                    placeholder="Briefly describe your site, target audience, preferred timeline, or specific infrastructure objectives..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className={`w-full px-4 py-3 rounded-lg bg-[#F7F5F0] border ${errors.message ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors resize-none`}
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-[#F7F5F0] border ${errors.message ? 'border-red-500' : 'border-[#1C2420]/15'} text-[#1C2420] text-sm focus:outline-none focus:border-[#E06D22] focus:bg-white transition-colors resize-none`}
                   />
-                  {errors.message && <span className="text-[11px] text-[#E06D22] font-mono mt-1 block">{errors.message}</span>}
+                  {errors.message && <span className="text-[11px] text-[#E06D22] font-mono mt-0.5 block">{errors.message}</span>}
                 </div>
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-lg bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta transition-all flex items-center justify-center gap-2 group cursor-pointer"
-                >
-                  <span>{contactData.ctaButton}</span>
-                  <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 rounded-lg bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>{contactData.ctaButton || "SUBMIT PROPOSAL REQUEST"}</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                  <p className="text-[11px] font-mono text-[#525E57] text-center mt-2">
+                    Confidential project consultation. We never share your project parameters with third parties.
+                  </p>
+                </div>
               </form>
             )}
 

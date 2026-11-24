@@ -127,7 +127,7 @@ export default function About() {
             >
               <img
                 src={aboutData.image}
-                alt="ZIPLINE ASIA Engineered Commercial Zipline Launch Tower & Mountain Cable System"
+                alt="Adventure Park Solutions Engineered Commercial Adventure Infrastructure Launch Tower & Cable System"
                 className="w-full h-[280px] sm:h-[400px] lg:h-[500px] object-cover object-center"
                 loading="lazy"
               />

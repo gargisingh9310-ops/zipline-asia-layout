@@ -27,11 +27,15 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Product', href: '#products' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', fullLabel: 'Home', href: '#hero' },
+    { label: 'About', fullLabel: 'About Us', href: '#about' },
+    { label: 'Solutions', fullLabel: 'Our Solutions', href: '#solutions' },
+    { label: 'Attractions', fullLabel: 'Adventure Attractions', href: '#products' },
+    { label: 'Industries', fullLabel: 'Industries We Serve', href: '#industries' },
+    { label: 'Projects', fullLabel: 'Projects & Portfolio', href: '#projects' },
+    { label: 'Safety', fullLabel: 'Safety & Engineering', href: '#safety' },
+    { label: 'Knowledge', fullLabel: 'Knowledge Hub', href: '#knowledge' },
+    { label: 'Contact', fullLabel: 'Contact Us', href: '#contact' },
   ];
 
   const handleLinkClick = (e, href) => {
@@ -70,13 +74,13 @@ export default function Navbar() {
         </a>
 
         {/* Center: Desktop Navigation Links in Warm Sand with Terracotta Hover */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-xs font-semibold uppercase tracking-wider text-[#F7F5F0]/90 hover:text-[#E06D22] transition-colors relative py-1 terracotta-hover-line"
+              className="text-[11px] xl:text-xs font-semibold uppercase tracking-wider text-[#F7F5F0]/90 hover:text-[#E06D22] transition-colors relative py-1 terracotta-hover-line whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -84,13 +88,13 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Button in Terracotta with White Text */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
           <a
             href="#contact"
             onClick={(e) => handleLinkClick(e, '#contact')}
-            className="group hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-md bg-[#E06D22] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-md"
+            className="group hidden sm:inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-2.5 rounded-md bg-[#E06D22] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-md whitespace-nowrap"
           >
-            <span>GET IN TOUCH</span>
+            <span>REQUEST A PROPOSAL</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
@@ -126,7 +130,7 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-sm font-semibold uppercase tracking-wider text-[#F7F5F0] hover:text-[#E06D22] active:text-[#E06D22] py-3 px-2 border-b border-white/5 active:bg-white/5 rounded-md transition-colors block"
                 >
-                  {link.label}
+                  {link.fullLabel}
                 </a>
               ))}
               <div className="pt-4">
@@ -135,7 +139,7 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, '#contact')}
                   className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-md bg-[#E06D22] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#C85B17] active:bg-[#C85B17] shadow-md"
                 >
-                  <span>GET IN TOUCH</span>
+                  <span>REQUEST A PROJECT PROPOSAL</span>
                   <ArrowUpRight className="w-4 h-4 text-white" />
                 </a>
               </div>

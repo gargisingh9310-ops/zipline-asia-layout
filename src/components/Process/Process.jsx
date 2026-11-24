@@ -16,8 +16,13 @@ export default function Process() {
 
         {/* Section Header: Compact & Purposeful */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-[#1C2420]/15">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl space-y-2">
             <ScrollReveal animation="fade-up">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+                {processData?.label || "OUR APPROACH"}
+              </span>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up" delay={0.05}>
               <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#1C2420] leading-[1.08]">
                 {processData?.heading || "FROM FIRST IDEA TO REAL-WORLD EXPERIENCE."}
               </h2>
@@ -26,7 +31,7 @@ export default function Process() {
 
           <ScrollReveal animation="fade-up" delay={0.1}>
             <p className="text-xs sm:text-sm text-[#525E57] max-w-md font-normal leading-relaxed">
-              {processData?.supportingText || "Our structured four-stage methodology ensures structural precision, commercial safety, and transparent execution."}
+              {processData?.supportingText || "Our structured project methodology ensures structural precision, commercial safety, and transparent execution."}
             </p>
           </ScrollReveal>
         </div>

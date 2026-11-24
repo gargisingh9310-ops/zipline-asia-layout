@@ -338,8 +338,8 @@ export default function Projects() {
                       <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2.5 py-1 rounded-md bg-[#14281D]/85 backdrop-blur-md text-[#E06D22] border border-[#E06D22]/30 shadow-sm">
                         {project.category}
                       </span>
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-[#F7F5F0]/70 px-2 py-0.5 rounded bg-black/40 backdrop-blur-sm">
-                        TYPOLOGY
+                      <span className="text-[9px] font-mono uppercase tracking-widest text-[#F7F5F0]/80 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm font-semibold">
+                        {project.badge || "PORTFOLIO"}
                       </span>
                     </div>
 
