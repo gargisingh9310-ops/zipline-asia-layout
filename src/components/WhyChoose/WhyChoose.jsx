@@ -10,7 +10,7 @@ export default function WhyChoose() {
   return (
     <section
       id="why-choose"
-      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#F7F5F0] text-[#1C2420] canopy-grid-light overflow-hidden"
+      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#F7F5F0] text-[#292D2B] canopy-grid-light overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
@@ -20,37 +20,37 @@ export default function WhyChoose() {
           {/* Left Column (col-span-5): Bold Editorial Heading & Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
             <ScrollReveal animation="fade-up">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C6A15B] block mb-2">
                 {whyChooseData?.label || "WHY CHOOSE APS"}
               </span>
-              <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#1C2420] leading-[1.08]">
+              <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#183B2B] leading-[1.08]">
                 {whyChooseData?.heading || "ONE PARTNER. COMPLETE ADVENTURE INFRASTRUCTURE."}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={0.1}>
-              <p className="text-sm sm:text-base text-[#525E57] font-normal leading-relaxed">
+              <p className="text-sm sm:text-base text-[#6E7571] font-normal leading-relaxed">
                 {whyChooseData?.supportingText || "Developing an adventure destination requires multidisciplinary coordination. Adventure Park Solutions brings together engineering precision, equipment manufacturing, and turnkey project delivery."}
               </p>
             </ScrollReveal>
 
             {/* B2B Engineering Benchmarks */}
             <ScrollReveal animation="fade-up" delay={0.15}>
-              <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#1C2420]/10">
+              <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#292D2B]/10">
                 <div className="space-y-1">
-                  <span className="text-xl sm:text-2xl font-mono font-extrabold text-[#E06D22] block">
+                  <span className="text-xl sm:text-2xl font-mono font-extrabold text-[#C6A15B] block">
                     12 : 1
                   </span>
-                  <span className="text-xs text-[#525E57] font-medium leading-tight block">
+                  <span className="text-xs text-[#6E7571] font-medium leading-tight block">
                     Commercial Rigging Safety Factor
                   </span>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xl sm:text-2xl font-mono font-extrabold text-[#3E6B48] block">
+                  <span className="text-xl sm:text-2xl font-mono font-extrabold text-[#183B2B] block">
                     100%
                   </span>
-                  <span className="text-xs text-[#525E57] font-medium leading-tight block">
+                  <span className="text-xs text-[#6E7571] font-medium leading-tight block">
                     Turnkey Single-Source Delivery
                   </span>
                 </div>
@@ -61,10 +61,10 @@ export default function WhyChoose() {
             <ScrollReveal animation="fade-up" delay={0.2}>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md bg-[#E06D22] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta transition-all duration-200 shadow-md w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md bg-[#C6A15B] text-[#292D2B] text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#B08B46] hover:text-white hover:shadow-glow-gold transition-all duration-200 shadow-md w-full sm:w-auto text-center"
               >
                 <span>INITIATE PROJECT DISCUSSION</span>
-                <ArrowUpRight className="w-4 h-4 text-white" />
+                <ArrowUpRight className="w-4 h-4 text-current" />
               </a>
             </ScrollReveal>
           </div>
@@ -78,20 +78,20 @@ export default function WhyChoose() {
                   key={cap?.title || idx}
                   animation="fade-up"
                   delay={0.05 * idx}
-                  className="space-y-2 pb-5 border-b border-[#1C2420]/15 group"
+                  className="space-y-2 pb-5 border-b border-[#292D2B]/15 group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#3E6B48]">
+                    <span className="text-xs font-mono font-bold text-[#183B2B]">
                       CAPABILITY // 0{idx + 1}
                     </span>
-                    <Icon className="w-4 h-4 text-[#3E6B48] group-hover:text-[#E06D22] transition-colors" />
+                    <Icon className="w-4 h-4 text-[#183B2B] group-hover:text-[#C6A15B] transition-colors" />
                   </div>
 
-                  <h3 className="text-base font-display font-bold text-[#1C2420] uppercase tracking-tight group-hover:text-[#3E6B48] transition-colors">
+                  <h3 className="text-base font-display font-bold text-[#292D2B] uppercase tracking-tight group-hover:text-[#183B2B] transition-colors">
                     {cap?.title}
                   </h3>
 
-                  <p className="text-xs text-[#525E57] font-normal leading-relaxed">
+                  <p className="text-xs text-[#6E7571] font-normal leading-relaxed">
                     {cap?.description}
                   </p>
                 </ScrollReveal>

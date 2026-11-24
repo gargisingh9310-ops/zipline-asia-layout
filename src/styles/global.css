@@ -3,22 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --pine-green: #14281D;
-  --pine-surface: #193325;
-  --pine-card: #1D382A;
+  --forest-green: #183B2B;
+  --forest-surface: #1F4735;
+  --charcoal: #292D2B;
+  --charcoal-surface: #232625;
+  --charcoal-muted: #6E7571;
+  --gold: #C6A15B;
+  --gold-hover: #B08B46;
+  --pure-white: #FFFFFF;
+
+  --pine-green: #183B2B;
+  --pine-surface: #1F4735;
+  --pine-card: #234E3A;
   --warm-sand: #F7F5F0;
   --sand-surface: #FFFFFF;
-  --bark-charcoal: #1C2420;
-  --charcoal-muted: #525E57;
-  --terracotta: #E06D22;
-  --terracotta-hover: #C85B17;
-  --moss-green: #3E6B48;
-  --moss-light: #55875E;
+  --bark-charcoal: #292D2B;
+  --terracotta: #C6A15B;
+  --terracotta-hover: #B08B46;
+  --moss-green: #183B2B;
+  --moss-light: #2E5F47;
 }
 
 /* Base Configuration */
 html {
-  background-color: var(--pine-green);
+  background-color: var(--forest-green);
   color: #FFFFFF;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   scroll-behavior: smooth;
@@ -27,40 +35,40 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--pine-green);
+  background-color: var(--forest-green);
   color: #FFFFFF;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar - Forest Canopy Natural Style */
+/* Custom Scrollbar - Forest Green & Gold Style */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #14281D;
+  background: #183B2B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3E6B48;
+  background: #234E3A;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E06D22;
+  background: #C6A15B;
 }
 
-/* Forest Canopy Blueprint Grid Lines */
+/* Canopy Grid Lines */
 .canopy-grid-dark {
   background-image: 
-    linear-gradient(to right, rgba(62, 107, 72, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(62, 107, 72, 0.12) 1px, transparent 1px);
+    linear-gradient(to right, rgba(198, 161, 91, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(198, 161, 91, 0.08) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .canopy-grid-light {
   background-image: 
-    linear-gradient(to right, rgba(28, 36, 32, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 36, 32, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(41, 45, 43, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 45, 43, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -69,7 +77,7 @@ body {
   font-family: 'Space Grotesk', 'Sora', sans-serif;
 }
 
-/* Terracotta Line Hover Accent */
+/* Gold Line Hover Accent */
 .terracotta-hover-line {
   position: relative;
 }
@@ -80,7 +88,7 @@ body {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: #E06D22;
+  background-color: #C6A15B;
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .terracotta-hover-line:hover::after {
@@ -89,7 +97,7 @@ body {
 
 /* Smooth Focus States */
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-  outline: 2px solid #E06D22;
+  outline: 2px solid #C6A15B;
   outline-offset: 2px;
 }
 

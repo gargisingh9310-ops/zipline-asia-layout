@@ -10,15 +10,15 @@ export default function KnowledgeHub() {
   return (
     <section
       id="knowledge"
-      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-t border-[#3E6B48]/30"
+      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#183B2B] text-white canopy-grid-dark overflow-hidden border-t border-[#C6A15B]/25"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-[#3E6B48]/30">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-[#C6A15B]/25">
           <div className="max-w-2xl space-y-2">
             <ScrollReveal animation="fade-up">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C6A15B] block">
                 {knowledgeData?.label || "KNOWLEDGE HUB // ADVENTURE PARK INSIGHTS"}
               </span>
             </ScrollReveal>
@@ -43,12 +43,12 @@ export default function KnowledgeHub() {
               key={item.id || idx}
               animation="fade-up"
               delay={0.05 * idx}
-              className="group flex flex-col justify-between rounded-2xl bg-[#193325]/80 border border-[#3E6B48]/40 hover:border-[#E06D22] p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-card-pine"
+              className="group flex flex-col justify-between rounded-2xl bg-[#1F4735]/80 border border-white/10 hover:border-[#C6A15B] p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-md"
             >
               <div className="space-y-3.5">
                 {/* Header Tag */}
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-[#14281D] text-[#E06D22] border border-[#E06D22]/30 font-bold">
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-[#183B2B] text-[#C6A15B] border border-[#C6A15B]/30 font-bold">
                     {item.category}
                   </span>
                   <span className="text-[10px] font-mono text-[#F7F5F0]/60">
@@ -57,7 +57,7 @@ export default function KnowledgeHub() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-display font-bold uppercase tracking-tight text-white group-hover:text-[#E06D22] transition-colors leading-snug">
+                <h3 className="text-lg sm:text-xl font-display font-bold uppercase tracking-tight text-white group-hover:text-[#C6A15B] transition-colors leading-snug">
                   {item.title}
                 </h3>
 
@@ -68,13 +68,13 @@ export default function KnowledgeHub() {
 
                 {/* Key Planning Aspects */}
                 {Array.isArray(item.keyPoints) && (
-                  <div className="space-y-1.5 pt-2 border-t border-[#3E6B48]/30">
-                    <span className="text-[10px] font-mono uppercase text-[#3E6B48] font-bold block">
+                  <div className="space-y-1.5 pt-2 border-t border-white/10">
+                    <span className="text-[10px] font-mono uppercase text-[#C6A15B] font-bold block">
                       KEY PLANNING ASPECTS
                     </span>
                     {item.keyPoints.map((pt, pIdx) => (
                       <div key={pIdx} className="flex items-center gap-2 text-xs text-[#F7F5F0]/80">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E06D22] shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C6A15B] shrink-0" />
                         <span className="truncate">{pt}</span>
                       </div>
                     ))}
@@ -83,17 +83,17 @@ export default function KnowledgeHub() {
               </div>
 
               {/* Card Footer: Outline View CTA */}
-              <div className="pt-4 mt-4 border-t border-[#3E6B48]/30 flex items-center justify-between">
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-[#A9B8C5]/70">
                   TECHNICAL OUTLINE
                 </span>
                 <button
                   type="button"
                   onClick={() => setActiveArticle(item)}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-[#E06D22] group-hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-[#C6A15B] group-hover:text-white transition-colors cursor-pointer"
                 >
                   <span>READ OVERVIEW</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#E06D22] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C6A15B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
             </ScrollReveal>
@@ -101,9 +101,9 @@ export default function KnowledgeHub() {
         </div>
 
         {/* Planning Advisory Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#193325]/50 border border-[#3E6B48]/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 rounded-2xl bg-[#1F4735]/50 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#E06D22] font-bold block">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#C6A15B] font-bold block">
               ADVISORY & FEASIBILITY CONSULTATION
             </span>
             <p className="text-sm text-[#F7F5F0]">
@@ -112,10 +112,10 @@ export default function KnowledgeHub() {
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#E06D22] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta transition-all shadow-md shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#C6A15B] text-[#292D2B] text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#B08B46] hover:text-white hover:shadow-glow-gold transition-all shadow-md shrink-0"
           >
             <span>REQUEST PLANNING CONSULTATION</span>
-            <ArrowUpRight className="w-4 h-4 text-white" />
+            <ArrowUpRight className="w-4 h-4 text-current" />
           </a>
         </div>
 
@@ -124,7 +124,7 @@ export default function KnowledgeHub() {
       {/* Guide Overview Modal */}
       {activeArticle && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-up">
-          <div className="bg-[#14281D] text-white rounded-2xl max-w-xl w-full border border-[#3E6B48]/50 p-5 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto my-auto">
+          <div className="bg-[#183B2B] text-white rounded-2xl max-w-xl w-full border border-white/15 p-5 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto my-auto">
             <button
               type="button"
               onClick={() => setActiveArticle(null)}
@@ -135,7 +135,7 @@ export default function KnowledgeHub() {
             </button>
 
             <div className="space-y-4">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#E06D22] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#C6A15B] font-bold block">
                 PLANNING FRAMEWORK // {activeArticle.category}
               </span>
               <h3 className="text-2xl font-display font-extrabold uppercase text-white">
@@ -145,14 +145,14 @@ export default function KnowledgeHub() {
                 {activeArticle.summary}
               </p>
 
-              <div className="p-4 rounded-xl bg-[#193325] border border-[#3E6B48]/30 space-y-3">
-                <span className="text-xs font-mono uppercase text-[#3E6B48] font-bold block">
+              <div className="p-4 rounded-xl bg-[#1F4735] border border-white/10 space-y-3">
+                <span className="text-xs font-mono uppercase text-[#C6A15B] font-bold block">
                   CORE EVALUATION CRITERIA
                 </span>
                 <div className="space-y-2">
                   {activeArticle.keyPoints?.map((pt, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-[#F7F5F0]/85">
-                      <CheckCircle2 className="w-4 h-4 text-[#E06D22] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#C6A15B] shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </div>
                   ))}
@@ -174,7 +174,7 @@ export default function KnowledgeHub() {
                 <a
                   href="#contact"
                   onClick={() => setActiveArticle(null)}
-                  className="px-6 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold uppercase hover:bg-[#C85B17] transition-colors"
+                  className="px-6 py-2.5 rounded bg-[#C6A15B] text-[#292D2B] text-xs font-mono font-bold uppercase hover:bg-[#B08B46] hover:text-white transition-colors"
                 >
                   REQUEST PROJECT PROPOSAL
                 </a>

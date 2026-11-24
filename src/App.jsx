@@ -21,7 +21,7 @@ export default function App() {
     <Router>
       <SmoothScroll>
         <ScrollToTop />
-        <div className="relative min-h-screen bg-[#14281D] text-white font-sans selection:bg-[#E06D22] selection:text-white flex flex-col justify-between">
+        <div className="relative min-h-screen bg-[#183B2B] text-white font-sans selection:bg-[#C6A15B] selection:text-[#292D2B] flex flex-col justify-between">
           {/* Universal Sticky Navigation */}
           <Navbar />
 

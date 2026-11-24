@@ -208,16 +208,16 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#14281D] text-white canopy-grid-dark overflow-hidden"
+      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#183B2B] text-white canopy-grid-dark overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header with Carousel Navigation & Pagination Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 mb-10 border-b border-[#3E6B48]/30">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 mb-10 border-b border-[#C6A15B]/25">
           
           <div className="max-w-2xl space-y-2">
             <ScrollReveal animation="fade-up">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C6A15B] block">
                 {projectsData?.label || "PROJECTS & CAPABILITIES"}
               </span>
             </ScrollReveal>
@@ -238,8 +238,8 @@ export default function Projects() {
             
             {/* Project Index Counter */}
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#F7F5F0]/80 tracking-widest">
-              <span className="text-[#E06D22]">0{activeDotIndex + 1}</span>
-              <span className="text-[#3E6B48]">/</span>
+              <span className="text-[#C6A15B]">0{activeDotIndex + 1}</span>
+              <span className="text-[#C6A15B]/50">/</span>
               <span>0{totalOriginal}</span>
             </div>
 
@@ -249,7 +249,7 @@ export default function Projects() {
               <button
                 type="button"
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#193325] border border-[#3E6B48]/40 hover:border-[#E06D22] text-[#F7F5F0]/80 hover:text-white flex items-center justify-center transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1F4735] border border-white/10 hover:border-[#C6A15B] text-[#F7F5F0]/80 hover:text-white flex items-center justify-center transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0"
                 aria-label={isAutoPlaying ? "Pause automatic slide rotation" : "Resume automatic slide rotation"}
                 title={isAutoPlaying ? "Pause carousel" : "Resume carousel"}
               >
@@ -260,7 +260,7 @@ export default function Projects() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#193325] border border-[#3E6B48]/40 hover:border-[#E06D22] text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#1D382A] hover:-translate-y-0.5 active:translate-y-0"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1F4735] border border-white/10 hover:border-[#C6A15B] text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#234E3A] hover:-translate-y-0.5 active:translate-y-0"
                 aria-label="Previous project slide"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -269,7 +269,7 @@ export default function Projects() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#193325] border border-[#3E6B48]/40 hover:border-[#E06D22] text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#1D382A] hover:-translate-y-0.5 active:translate-y-0"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1F4735] border border-white/10 hover:border-[#C6A15B] text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#234E3A] hover:-translate-y-0.5 active:translate-y-0"
                 aria-label="Next project slide"
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -318,10 +318,10 @@ export default function Projects() {
                 className="shrink-0 group"
               >
                 {/* Curved Card Container */}
-                <div className="relative h-full rounded-[1.75rem] overflow-hidden bg-[#193325] border border-[#3E6B48]/40 hover:border-[#E06D22] transition-all duration-300 shadow-card-pine flex flex-col justify-between hover:-translate-y-1.5">
+                <div className="relative h-full rounded-[1.75rem] overflow-hidden bg-[#1F4735] border border-white/10 hover:border-[#C6A15B] transition-all duration-300 shadow-md flex flex-col justify-between hover:-translate-y-1.5">
                   
                   {/* Landscape Project Image Area with Zoom Hover */}
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#14281D]">
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#183B2B]">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -331,11 +331,11 @@ export default function Projects() {
                     />
 
                     {/* Gradient Protection */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#14281D] via-[#14281D]/30 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#183B2B] via-[#183B2B]/30 to-transparent pointer-events-none" />
 
                     {/* Top Pill / Badge Tag */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                      <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2.5 py-1 rounded-md bg-[#14281D]/85 backdrop-blur-md text-[#E06D22] border border-[#E06D22]/30 shadow-sm">
+                      <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2.5 py-1 rounded-md bg-[#183B2B]/90 backdrop-blur-md text-[#C6A15B] border border-[#C6A15B]/30 shadow-sm">
                         {project.category}
                       </span>
                       <span className="text-[9px] font-mono uppercase tracking-widest text-[#F7F5F0]/80 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm font-semibold">
@@ -354,9 +354,9 @@ export default function Projects() {
                   </div>
 
                   {/* Compact Caption & Title Area */}
-                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3 bg-[#193325]/90">
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3 bg-[#1F4735]/90">
                     <div className="space-y-1.5">
-                      <h3 className="text-sm sm:text-base font-display font-bold uppercase tracking-tight text-white leading-snug group-hover:text-[#E06D22] transition-colors line-clamp-2">
+                      <h3 className="text-sm sm:text-base font-display font-bold uppercase tracking-tight text-white leading-snug group-hover:text-[#C6A15B] transition-colors line-clamp-2">
                         {project.title}
                       </h3>
                       <p className="text-xs text-[#F7F5F0]/75 line-clamp-2 leading-relaxed">
@@ -365,14 +365,14 @@ export default function Projects() {
                     </div>
 
                     {/* Card Footer: Transparent Capability Badge & Inquire Link */}
-                    <div className="pt-3 border-t border-[#3E6B48]/30 flex items-center justify-between">
-                      <span className="text-[10px] font-mono uppercase text-[#3E6B48] font-bold tracking-wide">
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span className="text-[10px] font-mono uppercase text-[#C6A15B] font-bold tracking-wide">
                         {project.badge || "CAPABILITY CONCEPT"}
                       </span>
                       <a
                         href="#contact"
                         onClick={handleLinkClick}
-                        className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase text-[#E06D22] hover:text-[#C85B17] tracking-wider transition-colors group/link"
+                        className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase text-[#C6A15B] hover:text-[#B08B46] tracking-wider transition-colors group/link"
                       >
                         <span>Inquire</span>
                         <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -390,7 +390,7 @@ export default function Projects() {
 
       {/* Pagination Dot Indicators & Category Quick Filter */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-10">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#3E6B48]/20">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
           
           {/* Transparent Disclaimer */}
           <p className="text-[11px] font-mono text-[#F7F5F0]/60 text-center sm:text-left">
@@ -406,8 +406,8 @@ export default function Projects() {
                 onClick={() => handleDotClick(dotIdx)}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   activeDotIndex === dotIdx
-                    ? 'w-7 bg-[#E06D22]'
-                    : 'w-2 bg-[#3E6B48]/50 hover:bg-[#3E6B48]'
+                    ? 'w-7 bg-[#C6A15B]'
+                    : 'w-2 bg-white/20 hover:bg-[#C6A15B]/50'
                 }`}
                 aria-label={`Jump to project ${dotIdx + 1}`}
               />

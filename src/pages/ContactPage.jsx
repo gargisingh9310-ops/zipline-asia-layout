@@ -105,7 +105,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="w-full bg-[#F7F5F0] text-[#1C2420]">
+    <div className="w-full bg-[#F7F5F0] text-[#292D2B]">
       {/* 01 — Full-Screen Page Hero (100svh, Dark & Cinematic) */}
       <PageHero
         eyebrow="START A DISCUSSION // B2B CONSULTATION"
@@ -127,24 +127,24 @@ export default function ContactPage() {
           {/* Left Column: Coordinates & Parameters */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal>
-              <div className="p-8 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-4">
-                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold">
+              <div className="p-8 rounded-2xl bg-white border border-[#292D2B]/10 shadow-sm space-y-4">
+                <div className="text-xs font-mono text-[#C6A15B] tracking-widest uppercase font-bold">
                   DIRECT B2B COORDINATION
                 </div>
-                <h3 className="text-2xl font-display font-extrabold uppercase text-[#14281D]">
+                <h3 className="text-2xl font-display font-extrabold uppercase text-[#183B2B]">
                   Engineering Partnership
                 </h3>
-                <p className="text-xs sm:text-sm text-[#525E57] font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6E7571] font-normal leading-relaxed">
                   ZIPLINE ASIA works directly with resort owners, developers, tourism authorities, and adventure operators across India, Asia, and international markets.
                 </p>
 
-                <div className="space-y-3 pt-3 border-t border-[#1C2420]/10 text-xs font-mono">
+                <div className="space-y-3 pt-3 border-t border-[#292D2B]/10 text-xs font-mono">
                   {contactData.contactPoints.map((cp, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#3E6B48]/15">
-                      <div className="text-[#E06D22] font-bold uppercase tracking-wider mb-1">
+                    <div key={idx} className="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#292D2B]/10">
+                      <div className="text-[#C6A15B] font-bold uppercase tracking-wider mb-1">
                         {cp.label}
                       </div>
-                      <div className="text-[#14281D] font-normal leading-relaxed">
+                      <div className="text-[#183B2B] font-normal leading-relaxed">
                         {cp.value}
                       </div>
                     </div>
@@ -155,14 +155,14 @@ export default function ContactPage() {
 
             {/* Turnaround Protocol Box */}
             <ScrollReveal delay={0.1}>
-              <div className="p-6 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-2">
+              <div className="p-6 rounded-2xl bg-white border border-[#292D2B]/10 shadow-sm space-y-2">
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-mono text-[#14281D] font-bold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-[#183B2B] font-bold uppercase tracking-wider">
                     PROPOSAL TURNAROUND PROTOCOL
                   </span>
                 </div>
-                <p className="text-xs text-[#525E57] font-normal leading-relaxed">
+                <p className="text-xs text-[#6E7571] font-normal leading-relaxed">
                   Following submission of your project parameters, our engineering desk reviews site topography and produces an initial attraction configuration outline within 48 to 72 business hours.
                 </p>
               </div>
@@ -170,17 +170,17 @@ export default function ContactPage() {
 
             {/* FAQ Accordion / Box */}
             <ScrollReveal delay={0.15}>
-              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#3E6B48]/15 shadow-sm space-y-4">
-                <div className="text-xs font-mono text-[#E06D22] tracking-widest uppercase font-bold">
+              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#292D2B]/10 shadow-sm space-y-4">
+                <div className="text-xs font-mono text-[#C6A15B] tracking-widest uppercase font-bold">
                   FREQUENTLY ASKED QUESTIONS
                 </div>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <div key={idx} className="border-b border-[#1C2420]/10 pb-3 last:border-0 last:pb-0">
-                      <div className="text-xs sm:text-sm font-display font-bold uppercase text-[#14281D] mb-1">
+                    <div key={idx} className="border-b border-[#292D2B]/10 pb-3 last:border-0 last:pb-0">
+                      <div className="text-xs sm:text-sm font-display font-bold uppercase text-[#183B2B] mb-1">
                         {faq.q}
                       </div>
-                      <p className="text-xs text-[#525E57] font-normal leading-relaxed">
+                      <p className="text-xs text-[#6E7571] font-normal leading-relaxed">
                         {faq.a}
                       </p>
                     </div>
@@ -193,15 +193,15 @@ export default function ContactPage() {
           {/* Right Column: 10-Field Form (LIGHT: Spacious White Card) */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.1}>
-              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#3E6B48]/20 shadow-xl relative">
+              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#292D2B]/15 shadow-xl relative">
                 <div className="mb-8">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E06D22]/10 border border-[#E06D22]/30 text-[#E06D22] text-xs font-mono tracking-widest uppercase mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C6A15B]/10 border border-[#C6A15B]/30 text-[#C6A15B] text-xs font-mono tracking-widest uppercase mb-3">
                     STEP 01 // SPECIFY PARAMETERS
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-[#14281D]">
+                  <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-[#183B2B]">
                     Project Consultation Form
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#525E57] font-normal">
+                  <p className="mt-2 text-xs sm:text-sm text-[#6E7571] font-normal">
                     Complete the details below to receive a customized feasibility proposal from our engineering team.
                   </p>
                 </div>
@@ -211,13 +211,13 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center mx-auto mb-4 text-emerald-600">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h4 className="text-2xl font-display font-extrabold uppercase text-[#14281D] mb-2">
+                    <h4 className="text-2xl font-display font-extrabold uppercase text-[#183B2B] mb-2">
                       Proposal Request Received
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#525E57] font-normal max-w-md mx-auto mb-6 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#6E7571] font-normal max-w-md mx-auto mb-6 leading-relaxed">
                       Thank you for sharing your project parameters. A technical director from ZIPLINE ASIA will review your site details and contact you within 48 business hours.
                     </p>
-                    <div className="inline-block p-3 rounded-lg bg-white border border-[#3E6B48]/20 text-xs font-mono text-[#E06D22] font-bold mb-6 shadow-2xs">
+                    <div className="inline-block p-3 rounded-lg bg-white border border-[#292D2B]/15 text-xs font-mono text-[#C6A15B] font-bold mb-6 shadow-2xs">
                       REFERENCE TICKET: ZA-PROPOSAL-{Math.floor(100000 + Math.random() * 900000)}
                     </div>
                     <div>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                             description: ''
                           });
                         }}
-                        className="px-6 py-2.5 rounded bg-[#E06D22] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#C85B17] transition-colors cursor-pointer"
+                        className="px-6 py-2.5 rounded bg-[#C6A15B] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#B08B46] transition-colors cursor-pointer"
                       >
                         Submit Another Request
                       </button>
@@ -248,7 +248,7 @@ export default function ContactPage() {
                     {/* Row 1: Name & Company */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Full Name *
                         </label>
                         <input
@@ -258,11 +258,11 @@ export default function ContactPage() {
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder="e.g. Rahul Sharma"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Organization / Company *
                         </label>
                         <input
@@ -272,7 +272,7 @@ export default function ContactPage() {
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="e.g. Highland Valley Resorts"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                     </div>
@@ -280,7 +280,7 @@ export default function ContactPage() {
                     {/* Row 2: Email & Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Official Email *
                         </label>
                         <input
@@ -290,11 +290,11 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="e.g. rahul@highlandresorts.com"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Phone / WhatsApp *
                         </label>
                         <input
@@ -304,7 +304,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="e.g. +91 98765 43210"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                     </div>
@@ -312,7 +312,7 @@ export default function ContactPage() {
                     {/* Row 3: Location & Project Typology */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Project Location (City / State / Country) *
                         </label>
                         <input
@@ -322,21 +322,21 @@ export default function ContactPage() {
                           value={formData.location}
                           onChange={handleChange}
                           placeholder="e.g. Manali, Himachal Pradesh, India"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Project Typology *
                         </label>
                         <select
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         >
                           {contactData.projectTypes.map((pt, idx) => (
-                            <option key={idx} value={pt} className="bg-white text-[#14281D]">
+                            <option key={idx} value={pt} className="bg-white text-[#183B2B]">
                               {pt}
                             </option>
                           ))}
@@ -347,7 +347,7 @@ export default function ContactPage() {
                     {/* Row 4: Land Area & Budget */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Land / Footprint Area
                         </label>
                         <input
@@ -356,21 +356,21 @@ export default function ContactPage() {
                           value={formData.landArea}
                           onChange={handleChange}
                           placeholder="e.g. 5 Acres / 15,000 sq ft"
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                           Estimated Budget Framework *
                         </label>
                         <select
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                          className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                         >
                           {contactData.budgetRanges.map((br, idx) => (
-                            <option key={idx} value={br} className="bg-white text-[#14281D]">
+                            <option key={idx} value={br} className="bg-white text-[#183B2B]">
                               {br}
                             </option>
                           ))}
@@ -380,7 +380,7 @@ export default function ContactPage() {
 
                     {/* Desired Attractions */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                         Desired Attraction Mix (Optional)
                       </label>
                       <input
@@ -389,13 +389,13 @@ export default function ContactPage() {
                         value={formData.attractions}
                         onChange={handleChange}
                         placeholder="e.g. Zipline, Sky Cycle, Bungee, 2-Tier Rope Course"
-                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm"
+                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm"
                       />
                     </div>
 
                     {/* Project Overview */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-[#14281D] font-bold mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#183B2B] font-bold mb-2">
                         Project Overview & Site Context *
                       </label>
                       <textarea
@@ -405,7 +405,7 @@ export default function ContactPage() {
                         value={formData.description}
                         onChange={handleChange}
                         placeholder="Provide details about terrain topography, natural features, target audience, planned timeline, or specific engineering requirements..."
-                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#3E6B48]/25 text-[#14281D] placeholder-[#525E57]/40 focus:outline-none focus:bg-white focus:border-[#E06D22] transition-colors text-sm resize-none"
+                        className="w-full px-4 py-3 rounded-lg bg-[#FAF9F5] border border-[#C6A15B]/30/25 text-[#183B2B] placeholder-[#6E7571]/40 focus:outline-none focus:bg-white focus:border-[#C6A15B] transition-colors text-sm resize-none"
                       />
                     </div>
 
@@ -414,7 +414,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full py-4 rounded-xl bg-[#E06D22] text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#C85B17] transition-all duration-300 shadow-xl shadow-[#E06D22]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                        className="w-full py-4 rounded-xl bg-[#C6A15B] text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#B08B46] transition-all duration-300 shadow-xl shadow-[#C6A15B]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                       >
                         {submitting ? (
                           <>
@@ -433,7 +433,7 @@ export default function ContactPage() {
                       </button>
                     </div>
 
-                    <div className="text-[11px] font-mono text-[#525E57] text-center">
+                    <div className="text-[11px] font-mono text-[#6E7571] text-center">
                       * All submitted project specifications are treated under strict commercial non-disclosure.
                     </div>
                   </form>
@@ -445,11 +445,11 @@ export default function ContactPage() {
       </section>
 
       {/* 03 — Technical Support Coordinates & Geographic Coverage (DARK High-Impact Accent) */}
-      <section className="py-16 sm:py-24 bg-[#14281D] text-white canopy-grid-dark overflow-hidden border-t border-[#3E6B48]/30">
+      <section className="py-16 sm:py-24 bg-[#183B2B] text-white canopy-grid-dark overflow-hidden border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+            <div className="p-6 rounded-2xl bg-[#1F4735] border border-white/10 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C6A15B] block">
                 GEOGRAPHIC REACH
               </span>
               <h3 className="text-xl font-display font-bold uppercase text-white">
@@ -460,8 +460,8 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#3E6B48] block">
+            <div className="p-6 rounded-2xl bg-[#1F4735] border border-white/10 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#183B2B] block">
                 RESPONSE GUARANTEE
               </span>
               <h3 className="text-xl font-display font-bold uppercase text-white">
@@ -472,8 +472,8 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#193325] border border-[#3E6B48]/40 space-y-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E06D22] block">
+            <div className="p-6 rounded-2xl bg-[#1F4735] border border-white/10 space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C6A15B] block">
                 TECHNICAL INTEGRITY
               </span>
               <h3 className="text-xl font-display font-bold uppercase text-white">

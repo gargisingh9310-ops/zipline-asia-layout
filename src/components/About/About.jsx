@@ -47,52 +47,52 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#F7F5F0] text-[#1C2420] canopy-grid-light overflow-hidden"
+      className="relative w-full py-12 sm:py-20 scroll-mt-16 sm:scroll-mt-20 bg-[#F7F5F0] text-[#292D2B] canopy-grid-light overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
-        {/* Editorial Split Composition (No Boxy Cards) */}
+        {/* Editorial Split Composition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Refined Typography & Horizontal Pillar Strip */}
           <div className="lg:col-span-6 space-y-5">
             <ScrollReveal animation="fade-up">
-              <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#1C2420] leading-[1.1]">
+              <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-display font-extrabold uppercase tracking-tight text-[#292D2B] leading-[1.1]">
                 {aboutData.heading}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={0.1}>
-              <p className="text-base sm:text-lg text-[#3E6B48] font-semibold leading-relaxed">
+              <p className="text-base sm:text-lg text-[#183B2B] font-semibold leading-relaxed">
                 {aboutData.supportingText}
               </p>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={0.15}>
-              <div className="space-y-3 text-xs sm:text-sm text-[#525E57] font-normal leading-relaxed">
+              <div className="space-y-3 text-xs sm:text-sm text-[#6E7571] font-normal leading-relaxed">
                 {aboutData.description.slice(0, 2).map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
               </div>
             </ScrollReveal>
 
-            {/* Clean Typographic Pillar Row (No Cards!) */}
+            {/* Clean Typographic Pillar Row */}
             <ScrollReveal animation="fade-up" delay={0.2}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 pb-2 border-y border-[#1C2420]/10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 pb-2 border-y border-[#292D2B]/10">
                 {aboutData.pillars.map((item, idx) => {
                   const Icon = iconList[idx] || ShieldCheck;
                   return (
                     <div key={idx} className="space-y-1.5">
-                      <div className="flex items-center gap-2 text-[#3E6B48]">
+                      <div className="flex items-center gap-2 text-[#183B2B]">
                         <Icon className="w-4 h-4 stroke-[2]" />
-                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#C6A15B]">
                           0{idx + 1}
                         </span>
                       </div>
-                      <h3 className="text-xs font-bold text-[#1C2420] uppercase tracking-tight leading-tight">
+                      <h3 className="text-xs font-bold text-[#292D2B] uppercase tracking-tight leading-tight">
                         {item.title}
                       </h3>
-                      <p className="text-[11px] text-[#525E57] leading-relaxed line-clamp-3">
+                      <p className="text-[11px] text-[#6E7571] leading-relaxed line-clamp-3">
                         {item.detail}
                       </p>
                     </div>
@@ -101,18 +101,18 @@ export default function About() {
               </div>
             </ScrollReveal>
 
-            {/* Small Elegant Text-based CTA in Terracotta Orange */}
+            {/* Small Elegant Text-based CTA in Gold */}
             <ScrollReveal animation="fade-up" delay={0.25}>
               <div className="pt-2">
                 <a
                   href={aboutData.ctaHref}
-                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-[#E06D22] hover:text-[#C85B17] active:scale-95 transition-all py-1 select-none cursor-pointer"
+                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-[#C6A15B] hover:text-[#B08B46] active:scale-95 transition-all py-1 select-none cursor-pointer"
                 >
                   <span className="relative">
                     {aboutData.ctaText}
-                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#E06D22] group-hover:w-full transition-all duration-300 ease-out" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C6A15B] group-hover:w-full transition-all duration-300 ease-out" />
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-[#E06D22] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 group-active:translate-x-1.5 group-active:-translate-y-1.5" />
+                  <ArrowUpRight className="w-4 h-4 text-[#C6A15B] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 group-active:translate-x-1.5 group-active:-translate-y-1.5" />
                 </a>
               </div>
             </ScrollReveal>
@@ -122,12 +122,12 @@ export default function About() {
           <div className="lg:col-span-6 relative">
             <div
               ref={imageContainerRef}
-              className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-[#1C2420]/10 bg-[#14281D]"
+              className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-[#292D2B]/10 bg-[#183B2B]"
               style={{ clipPath: 'inset(0% 0% 0% 0%)' }}
             >
               <img
                 src={aboutData.image}
-                alt="Adventure Park Solutions Engineered Commercial Adventure Infrastructure Launch Tower & Cable System"
+                alt="ZIPLINE ASIA Commercial Adventure Infrastructure Launch Tower & Cable System"
                 className="w-full h-[280px] sm:h-[400px] lg:h-[500px] object-cover object-center"
                 loading="lazy"
               />

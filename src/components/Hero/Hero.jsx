@@ -99,7 +99,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative h-[100svh] min-h-[100vh] w-full flex flex-col justify-between pt-16 sm:pt-24 lg:pt-28 pb-3 sm:pb-6 bg-[#14281D] text-white overflow-hidden"
+      className="relative h-[100svh] min-h-[100vh] w-full flex flex-col justify-between pt-16 sm:pt-24 lg:pt-28 pb-3 sm:pb-6 bg-[#183B2B] text-white overflow-hidden"
     >
       {/* Full-Width Background Cinematic Forest Canopy & Mountain Zipline Video */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -114,10 +114,10 @@ export default function Hero() {
           <source src="/hero-background.mp4" type="video/mp4" />
         </video>
 
-        {/* Subtle, Light Natural Overlay: Preserves Video Colors & Clarity with Text Legibility */}
-        <div className="absolute inset-0 bg-[#14281D]/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#14281D]/70 via-[#14281D]/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#14281D]/60 via-transparent to-black/20" />
+        {/* Subtle, Natural Forest Green & Charcoal Overlay */}
+        <div className="absolute inset-0 bg-[#183B2B]/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#183B2B]/85 via-[#183B2B]/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#183B2B]/80 via-transparent to-[#292D2B]/35" />
       </div>
 
       {/* Main Content Area */}
@@ -127,10 +127,10 @@ export default function Hero() {
           {/* Main Heading: Controlled Max-Width, Perfectly Balanced Responsive Size */}
           <h1
             ref={headlineRef}
-            className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-display font-extrabold tracking-tight text-white leading-[1.14] drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-display font-extrabold tracking-tight text-white leading-[1.14] drop-shadow-[0_2px_12px_rgba(41,45,43,0.7)]"
           >
             Engineering Experiences.{' '}
-            <span className="text-[#E06D22]">
+            <span className="text-[#C6A15B]">
               Building Adventures.
             </span>
           </h1>
@@ -138,12 +138,12 @@ export default function Hero() {
           {/* Supporting Text */}
           <p
             ref={descRef}
-            className="text-xs sm:text-sm md:text-base text-[#F7F5F0]/95 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
+            className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/95 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_8px_rgba(41,45,43,0.6)]"
           >
             {heroData.supportingText}
           </p>
 
-          {/* Action Buttons: Terracotta CTA + Clean Stone/White Border Secondary */}
+          {/* Action Buttons: Gold CTA + Clean White Border Secondary */}
           <div
             ref={ctaRef}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto"
@@ -151,16 +151,16 @@ export default function Hero() {
             <a
               href={heroData.primaryCTA.href}
               onClick={(e) => handleScrollClick(e, heroData.primaryCTA.href)}
-              className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#E06D22] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#C85B17] hover:shadow-glow-terracotta hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 shadow-md text-center cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#C6A15B] text-[#292D2B] text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#B08B46] hover:text-white hover:shadow-glow-gold hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 shadow-md text-center cursor-pointer"
             >
               <span>{heroData.primaryCTA.label}</span>
-              <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-4 h-4 text-[#292D2B] group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             <a
               href={heroData.secondaryCTA.href}
               onClick={(e) => handleScrollClick(e, heroData.secondaryCTA.href)}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent text-white border border-[#F7F5F0]/40 text-xs sm:text-sm font-bold uppercase tracking-wider hover:border-[#E06D22] hover:bg-white/5 hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 text-center cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-white/5 backdrop-blur-sm text-white border border-[#FFFFFF]/40 text-xs sm:text-sm font-bold uppercase tracking-wider hover:border-[#C6A15B] hover:text-[#C6A15B] hover:bg-white/10 hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-200 text-center cursor-pointer"
             >
               <span>{heroData.secondaryCTA.label}</span>
             </a>
@@ -171,17 +171,17 @@ export default function Hero() {
 
       {/* Bottom Telemetry Metrics Strip & Scroll Indicator */}
       <div ref={metricsRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full pt-2 sm:pt-6">
-        <div className="pt-3 sm:pt-5 border-t border-[#3E6B48]/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4">
+        <div className="pt-3 sm:pt-5 border-t border-[#C6A15B]/25 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4">
           
           {/* Engineering Metrics */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-8 w-full md:w-auto">
             {heroData.metrics.map((item, idx) => (
-              <div key={idx} className="flex sm:flex-col items-baseline sm:items-start justify-between sm:justify-start gap-2 sm:gap-0.5 border-b sm:border-b-0 border-[#3E6B48]/20 pb-1 sm:pb-0 last:border-b-0">
+              <div key={idx} className="flex sm:flex-col items-baseline sm:items-start justify-between sm:justify-start gap-2 sm:gap-0.5 border-b sm:border-b-0 border-[#C6A15B]/20 pb-1 sm:pb-0 last:border-b-0">
                 <div className="text-[10px] font-mono uppercase tracking-wider block font-bold shrink-0">
-                  <span className="text-[#E06D22]">// 0{idx + 1}</span>{' '}
-                  <span className="text-[#F7F5F0]/85">{item.label}</span>
+                  <span className="text-[#C6A15B]">// 0{idx + 1}</span>{' '}
+                  <span className="text-[#FFFFFF]/85">{item.label}</span>
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-[#F7F5F0] block drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+                <span className="text-xs sm:text-sm font-semibold text-white block drop-shadow-[0_1px_4px_rgba(41,45,43,0.6)]">
                   {item.value}
                 </span>
               </div>
@@ -192,10 +192,10 @@ export default function Hero() {
           <a
             href="#about"
             onClick={(e) => handleScrollClick(e, '#about')}
-            className="hidden md:flex items-center gap-2 text-xs font-mono text-[#F7F5F0]/80 hover:text-[#E06D22] uppercase tracking-widest transition-colors select-none"
+            className="hidden md:flex items-center gap-2 text-xs font-mono text-[#FFFFFF]/80 hover:text-[#C6A15B] uppercase tracking-widest transition-colors select-none"
           >
             <span>SCROLL TO EXPLORE</span>
-            <ArrowDown className="w-3.5 h-3.5 text-[#E06D22] animate-bounce" />
+            <ArrowDown className="w-3.5 h-3.5 text-[#C6A15B] animate-bounce" />
           </a>
 
         </div>
