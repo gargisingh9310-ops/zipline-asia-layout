@@ -70,60 +70,67 @@ export default function Products() {
         {/* 50/50 Equal-Column Layout: Left (50%) List, Right (50%) Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
           
-          {/* Left Column: 50% Width — Compact, Spacious & Scrollable Product Selection List */}
-          <div className="w-full rounded-2xl bg-[#1F4735]/60 border border-[#C6A15B]/20 p-5 sm:p-7 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between pb-4 mb-3 border-b border-white/10">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#C6A15B] font-bold">
-                  {selectedCategory.toUpperCase()} ({filteredProducts.length})
-                </span>
-                <span className="text-xs font-mono text-white/60">
-                  0{activeProductIndex + 1} / 0{filteredProducts.length}
-                </span>
-              </div>
-
-              {/* Vertical Spacious Product Items */}
-              <div className="space-y-2.5 max-h-[500px] overflow-y-auto pr-1">
-                {filteredProducts.map((product, idx) => {
-                  const isActive = activeProductIndex === idx;
-
-                  return (
-                    <button
-                      key={product?.id || idx}
-                      type="button"
-                      onClick={() => setActiveProductIndex(idx)}
-                      className={`w-full text-left transition-all duration-300 cursor-pointer select-none rounded-xl py-3 sm:py-3.5 px-3.5 sm:px-4 flex items-center justify-between group border-b border-white/5 last:border-b-0 active:scale-[0.98] ${
-                        isActive
-                          ? 'bg-[#292D2B] text-white border-l-4 border-[#C6A15B] shadow-card-pine'
-                          : 'bg-transparent text-white/70 hover:text-white hover:bg-white/[0.04] border-l-4 border-transparent hover:translate-x-1'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3.5 min-w-0">
-                        <span className={`text-xs font-mono font-bold tracking-wider shrink-0 transition-colors ${isActive ? 'text-[#C6A15B]' : 'text-white/50 group-hover:text-[#C6A15B]'}`}>
-                          0{idx + 1}
-                        </span>
-                        <div className="space-y-0.5 min-w-0">
-                          <h4 className={`text-sm sm:text-base lg:text-[17px] font-display uppercase tracking-tight truncate transition-colors ${isActive ? 'font-semibold text-white' : 'font-medium text-white/80 group-hover:text-white'}`}>
-                            {product?.name}
-                          </h4>
-                          <span className={`text-[10px] font-mono uppercase block truncate transition-colors ${isActive ? 'text-[#C6A15B]/90 font-medium' : 'text-white/50 group-hover:text-white/80'}`}>
-                            {product?.category} // {product?.model}
-                          </span>
-                        </div>
-                      </div>
-
-                      <ArrowUpRight className={`w-4 h-4 shrink-0 ml-3 transition-all duration-300 ${
-                        isActive
-                          ? 'text-[#C6A15B] translate-x-0.5 -translate-y-0.5 opacity-100'
-                          : 'text-white/30 opacity-0 group-hover:opacity-100 group-hover:text-[#C6A15B]'
-                      }`} />
-                    </button>
-                  );
-                })}
-              </div>
+          {/* Left Column: 50% Width — Compact, Spacious & Independently Scrollable Product Selection List */}
+          <div className="w-full rounded-2xl bg-[#1F4735]/60 border border-[#C6A15B]/20 p-5 sm:p-7 flex flex-col justify-between h-full min-h-0">
+            {/* List Header */}
+            <div className="flex items-center justify-between pb-4 mb-3 border-b border-white/10 shrink-0">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#C6A15B] font-bold">
+                {selectedCategory.toUpperCase()} ({filteredProducts.length})
+              </span>
+              <span className="text-xs font-mono text-white/60">
+                0{activeProductIndex + 1} / 0{filteredProducts.length}
+              </span>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/60">
+            {/* Vertical Scrollable Product Items with Lenis Interception Prevention */}
+            <div
+              data-lenis-prevent="true"
+              data-lenis-prevent-wheel="true"
+              data-lenis-prevent-touch="true"
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
+              className="flex-1 min-h-0 max-h-[480px] lg:max-h-[540px] overflow-y-auto overscroll-contain pr-2 space-y-2.5 custom-scrollbar-gold touch-pan-y pb-2"
+            >
+              {filteredProducts.map((product, idx) => {
+                const isActive = activeProductIndex === idx;
+
+                return (
+                  <button
+                    key={product?.id || idx}
+                    type="button"
+                    onClick={() => setActiveProductIndex(idx)}
+                    className={`w-full text-left transition-all duration-300 cursor-pointer select-none rounded-xl py-3 sm:py-3.5 px-3.5 sm:px-4 flex items-center justify-between group border-b border-white/5 last:border-b-0 active:scale-[0.98] ${
+                      isActive
+                        ? 'bg-[#292D2B] text-white border-l-4 border-[#C6A15B] shadow-card-pine'
+                        : 'bg-transparent text-white/70 hover:text-white hover:bg-white/[0.04] border-l-4 border-transparent hover:translate-x-1'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <span className={`text-xs font-mono font-bold tracking-wider shrink-0 transition-colors ${isActive ? 'text-[#C6A15B]' : 'text-white/50 group-hover:text-[#C6A15B]'}`}>
+                        0{idx + 1}
+                      </span>
+                      <div className="space-y-0.5 min-w-0">
+                        <h4 className={`text-sm sm:text-base lg:text-[17px] font-display uppercase tracking-tight truncate transition-colors ${isActive ? 'font-semibold text-white' : 'font-medium text-white/80 group-hover:text-white'}`}>
+                          {product?.name}
+                        </h4>
+                        <span className={`text-[10px] font-mono uppercase block truncate transition-colors ${isActive ? 'text-[#C6A15B]/90 font-medium' : 'text-white/50 group-hover:text-white/80'}`}>
+                          {product?.category} // {product?.model}
+                        </span>
+                      </div>
+                    </div>
+
+                    <ArrowUpRight className={`w-4 h-4 shrink-0 ml-3 transition-all duration-300 ${
+                      isActive
+                        ? 'text-[#C6A15B] translate-x-0.5 -translate-y-0.5 opacity-100'
+                        : 'text-white/30 opacity-0 group-hover:opacity-100 group-hover:text-[#C6A15B]'
+                    }`} />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* List Footer */}
+            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/60 shrink-0">
               <span>SELECT AN ATTRACTION TO VIEW SPECS</span>
               <span className="text-[#C6A15B] font-bold">CLICK TO INSPECT</span>
             </div>

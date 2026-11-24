@@ -57,6 +57,27 @@ body {
   background: #C6A15B;
 }
 
+/* Premium Minimal Gold Attraction List Scrollbar */
+.custom-scrollbar-gold {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(198, 161, 91, 0.55) rgba(24, 59, 43, 0.4);
+}
+.custom-scrollbar-gold::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar-gold::-webkit-scrollbar-track {
+  background: rgba(24, 59, 43, 0.4);
+  border-radius: 4px;
+}
+.custom-scrollbar-gold::-webkit-scrollbar-thumb {
+  background: rgba(198, 161, 91, 0.55);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.custom-scrollbar-gold::-webkit-scrollbar-thumb:hover {
+  background: #C6A15B;
+}
+
 /* Canopy Grid Lines */
 .canopy-grid-dark {
   background-image: 
