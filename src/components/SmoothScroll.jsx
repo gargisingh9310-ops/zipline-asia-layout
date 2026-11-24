@@ -10,7 +10,11 @@ export default function SmoothScroll({ children }) {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
 
-    // Initialize Lenis smooth scroll
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Initialize single global Lenis smooth scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -21,7 +25,7 @@ export default function SmoothScroll({ children }) {
       touchMultiplier: 2,
     });
 
-    // Make lenis globally accessible for anchor navigation
+    // Make lenis globally accessible for anchor navigation and route updates
     window.lenis = lenis;
 
     // Synchronize Lenis with GSAP ScrollTrigger

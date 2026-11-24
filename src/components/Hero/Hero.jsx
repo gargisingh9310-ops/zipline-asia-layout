@@ -17,6 +17,7 @@ export default function Hero() {
     const el = heroRef.current;
     if (!el) return;
 
+    let mm;
     const ctx = gsap.context(() => {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
@@ -51,7 +52,7 @@ export default function Hero() {
       );
 
       // 2. Full-screen scroll pinning with responsive duration
-      const mm = gsap.matchMedia();
+      mm = gsap.matchMedia();
 
       // Desktop: preserve exact 75% scroll duration
       mm.add("(min-width: 768px)", () => {
@@ -80,7 +81,10 @@ export default function Hero() {
       });
     }, el);
 
-    return () => ctx.revert();
+    return () => {
+      if (mm) mm.revert();
+      ctx.revert();
+    };
   }, []);
 
   const handleScrollClick = (e, href) => {

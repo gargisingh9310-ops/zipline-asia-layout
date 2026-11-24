@@ -30,51 +30,57 @@ export default function PageHero({
     const el = heroRef.current;
     if (!el) return;
 
-    const ctx = gsap.context(() => {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
+    let ctx;
+    const rafId = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
 
-      const isMobile = window.innerWidth < 768;
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        const isMobile = window.innerWidth < 768;
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      // Subtle background image slow zoom
-      if (bgImgRef.current) {
-        gsap.fromTo(
-          bgImgRef.current,
-          { scale: 1.08 },
-          { scale: 1, duration: 2.2, ease: 'power2.out' }
+        // Subtle background image slow zoom
+        if (bgImgRef.current) {
+          gsap.fromTo(
+            bgImgRef.current,
+            { scale: 1.08 },
+            { scale: 1, duration: 2.2, ease: 'power2.out' }
+          );
+        }
+
+        // Staggered text reveals matching homepage Hero
+        tl.fromTo(
+          headlineRef.current,
+          { opacity: 0, y: isMobile ? 16 : 24 },
+          { opacity: 1, y: 0, duration: isMobile ? 0.7 : 0.85 },
+          0.05
         );
-      }
+        tl.fromTo(
+          descRef.current,
+          { opacity: 0, y: isMobile ? 12 : 18 },
+          { opacity: 1, y: 0, duration: isMobile ? 0.6 : 0.75 },
+          isMobile ? 0.2 : 0.25
+        );
+        tl.fromTo(
+          ctaRef.current,
+          { opacity: 0, y: isMobile ? 10 : 16 },
+          { opacity: 1, y: 0, duration: isMobile ? 0.5 : 0.65 },
+          isMobile ? 0.35 : 0.4
+        );
+        tl.fromTo(
+          metricsRef.current,
+          { opacity: 0, y: isMobile ? 12 : 16 },
+          { opacity: 1, y: 0, duration: isMobile ? 0.55 : 0.7 },
+          isMobile ? 0.45 : 0.55
+        );
+      }, el);
+    });
 
-      // Staggered text reveals matching homepage Hero
-      tl.fromTo(
-        headlineRef.current,
-        { opacity: 0, y: isMobile ? 16 : 24 },
-        { opacity: 1, y: 0, duration: isMobile ? 0.7 : 0.85 },
-        0.05
-      );
-      tl.fromTo(
-        descRef.current,
-        { opacity: 0, y: isMobile ? 12 : 18 },
-        { opacity: 1, y: 0, duration: isMobile ? 0.6 : 0.75 },
-        isMobile ? 0.2 : 0.25
-      );
-      tl.fromTo(
-        ctaRef.current,
-        { opacity: 0, y: isMobile ? 10 : 16 },
-        { opacity: 1, y: 0, duration: isMobile ? 0.5 : 0.65 },
-        isMobile ? 0.35 : 0.4
-      );
-      tl.fromTo(
-        metricsRef.current,
-        { opacity: 0, y: isMobile ? 12 : 16 },
-        { opacity: 1, y: 0, duration: isMobile ? 0.55 : 0.7 },
-        isMobile ? 0.45 : 0.55
-      );
-    }, el);
-
-    return () => ctx.revert();
-  }, []);
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (ctx) ctx.revert();
+    };
+  }, [title, highlightText]);
 
   const handleScrollDown = (e) => {
     e.preventDefault();

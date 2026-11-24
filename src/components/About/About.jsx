@@ -16,32 +16,39 @@ export default function About() {
     const el = imageContainerRef.current;
     if (!el) return;
 
-    const ctx = gsap.context(() => {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) {
-        gsap.set(el, { clipPath: 'inset(0% 0% 0% 0%)' });
-        return;
-      }
-
-      const isMobile = window.innerWidth < 768;
-
-      gsap.fromTo(
-        el,
-        { clipPath: 'inset(0% 0% 100% 0%)' },
-        {
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: isMobile ? 1.05 : 1.35,
-          ease: 'power3.inOut',
-          scrollTrigger: {
-            trigger: el,
-            start: isMobile ? 'top 88%' : 'top 82%',
-            once: true,
-          },
+    let ctx;
+    const rafId = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+          gsap.set(el, { clipPath: 'inset(0% 0% 0% 0%)' });
+          return;
         }
-      );
-    }, el);
 
-    return () => ctx.revert();
+        const isMobile = window.innerWidth < 768;
+
+        gsap.fromTo(
+          el,
+          { clipPath: 'inset(0% 0% 100% 0%)' },
+          {
+            clipPath: 'inset(0% 0% 0% 0%)',
+            duration: isMobile ? 1.05 : 1.35,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+              trigger: el,
+              start: isMobile ? 'top 88%' : 'top 82%',
+              once: true,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      }, el);
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (
